@@ -1,5 +1,10 @@
 const path = require("path");
 const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const extractSass = new ExtractTextPlugin({
+  filename: "../build/css/bundle.css"
+});
 
 const PROD = JSON.parse(process.env.PROD_ENV || 'false');
 
@@ -19,6 +24,13 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
+        })
       }
     ]
   },
@@ -39,5 +51,9 @@ module.exports = {
       compress:{
         warnings: false
       }
-    })] : []
+    }),
+    new ExtractTextPlugin("../css/bundle.css"),
+  ] : [
+    new ExtractTextPlugin("../css/bundle.css"),
+  ]
 };
