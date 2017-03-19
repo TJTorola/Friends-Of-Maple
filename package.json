@@ -4,7 +4,8 @@
   "description": "",
   "main": "build/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack -w",
+    "build-prod": "PROD_ENV='true' webpack -p",
   },
   "author": "Tyler Torola <Tyler@TJT.Codes>",
   "license": "ISC",
