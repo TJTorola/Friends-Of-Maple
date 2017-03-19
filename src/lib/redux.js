@@ -2,7 +2,7 @@ import { combineReducers, applyMiddleware } from 'redux';
 
 import { reduceObj } from './std';
 
-export const wrapActionsInDispatch = ({ dispatch }, actions) => (
+export const wrapActionsInDispatch = (actions, { dispatch }) => (
   reduceObj(actions, (action) => (
     (...params) => dispatch(action(...params))
   ))
@@ -33,8 +33,10 @@ export const deepReducerFromMap = (deepReducerMap) => {
     // reducer obj and not a obj containing reducer objs.
     (reducerObj.initialValue === undefined)
       ? deepReducerFromMap(reducerMap)
-      : reducerFromMap(reducerMap);
+      : reducerFromMap(reducerMap)
   ));
 
   return combineReducers(reducers);
 };
+
+export const createAction = (type) => () => ({ type });
