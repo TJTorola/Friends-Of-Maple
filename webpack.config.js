@@ -25,7 +25,7 @@ module.exports = {
   devtool: 'source-maps',
   resolve: {
     alias:{
-      '~': path.resolve(ROOT, 'src', 'js')
+      '~': path.resolve('./src')
     },
     extensions: [".js", ".jsx"]
   },
