@@ -2,6 +2,7 @@ import React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
+import css from './style/entry.scss';
 import Root from './view/root';
 
 import Reducers from './reducers/index';
