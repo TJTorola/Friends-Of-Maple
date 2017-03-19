@@ -3,8 +3,8 @@ import { render } from 'react-dom';
 
 import css from './sass/entry.scss';
 
-import Root from './view/root';
+import App from './app';
 
 document.addEventListener('DOMContentLoaded', () => {
-  render(<Root />, document.querySelector('#app'));
+  render(<App />, document.querySelector('#app'));
 });
