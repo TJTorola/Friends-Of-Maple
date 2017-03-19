@@ -5,7 +5,7 @@
   "main": "build/index.html",
   "scripts": {
     "build": "webpack -w",
-    "build-prod": "PROD_ENV='true' webpack -p",
+    "build-prod": "PROD_ENV='true' webpack -p"
   },
   "author": "Tyler Torola <Tyler@TJT.Codes>",
   "license": "ISC",
