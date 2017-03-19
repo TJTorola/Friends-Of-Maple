@@ -1,7 +1,7 @@
-import { combineReducers } from 'redux';
+import { deepReducerFromMap } from '~/lib/redux';
 
-const stub = (initialState = null, action) => initialState;
+import nav from './nav';
 
-export default combineReducers({
-  stub,
+export default deepReducerFromMap({
+  nav,
 });

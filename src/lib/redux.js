@@ -31,7 +31,7 @@ export const deepReducerFromMap = (deepReducerMap) => {
   const reducers = reduceObj(deepReducerMap, (reducerMap) => (
     // Assume if this has an initalValue key that it is a
     // reducer obj and not a obj containing reducer objs.
-    (reducerObj.initialValue === undefined)
+    (reducerMap.initialValue === undefined)
       ? deepReducerFromMap(reducerMap)
       : reducerFromMap(reducerMap)
   ));

@@ -17,6 +17,7 @@ const store = createStore(
   Middleware
 );
 global.s = store;
+debugger;
 global.a = wrapActionsInDispatch(Actions, store);
 
 export default () => (
