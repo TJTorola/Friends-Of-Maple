@@ -1,0 +1,30 @@
+#amount {
+  .value-select {
+    display: flex;
+
+    border-width: 1px 0;
+    border-color: $lightGray;
+    border-style: solid;
+
+    & .option {
+      flex-basis: 0;
+      flex-grow: 1;
+
+      text-align: center;
+
+      padding: 15px;
+
+      border-right: 1px solid $lightGray;
+
+      &.last {
+        border-right: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background: $lightGray;
+        color: white;
+      }
+    }
+  }
+}
