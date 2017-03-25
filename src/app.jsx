@@ -9,7 +9,7 @@ import Root from './view/root';
 
 import Reducers from './reducers/index';
 import Middleware from './middleware/index';
-import Actions from './actions/index';
+import * as Actions from './actions/index';
 
 const store = createStore(
   Reducers,

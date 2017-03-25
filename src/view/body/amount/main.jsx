@@ -1,9 +1,9 @@
 import React from 'react';
-import cx from 'classnames';
 
 import { INCREMENTS } from '~/config';
+import Increment from './increment';
 
-export default () => (
+const Amount = () => (
   <div id="amount">
     <div className="value-select">
       { INCREMENTS.map(mIncrement) }
@@ -19,18 +19,4 @@ const mIncrement = (increment, idx, increments) => (
   />
 );
 
-const Increment = ({ last, selectedAmount, increment: { amount, printable } }) => (
-  <div
-    className={incramentClassnames(last, amount === selectedAmount)}
-  >
-    { printable }
-  </div>
-);
-
-const incramentClassnames = (isLast, isSelected) => cx(
-  'increment',
-  {
-    'is-last': isLast,
-    'is-selected': isSelected,
-  }
-);
+export default Amount;

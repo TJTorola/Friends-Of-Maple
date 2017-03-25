@@ -1,7 +1,6 @@
 import { applyMiddleware } from 'redux';
-
-const stub = store => next => action => next(action);
+import logger from 'redux-logger'
 
 export default applyMiddleware(
-  stub,
+  logger,
 );

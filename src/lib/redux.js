@@ -39,4 +39,6 @@ export const deepReducerFromMap = (deepReducerMap) => {
   return combineReducers(reducers);
 };
 
-export const createAction = (type) => () => ({ type });
+export const createAction = (type) => (payload) => (
+  payload ? { type, payload } : { type }
+);
