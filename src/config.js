@@ -1,7 +1,7 @@
 export const COPY = {
   BODY: {
     AMOUNT: {
-      H1: 'Become a Friend of Maple',
+      H2: 'Become a Friend of Maple',
       P: `Select a monthly pledge and become a friend of maple. Support ongoing
       operational costs and insure that Maple can continue it's mission of supporting
       community and entreprenuers in Uganda, Chile, and around the world.`,

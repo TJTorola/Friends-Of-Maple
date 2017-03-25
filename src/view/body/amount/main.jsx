@@ -6,7 +6,7 @@ const copy = COPY.BODY.AMOUNT;
 
 const Amount = () => (
   <div id="amount">
-    <h1>{ copy.H1 }</h1>
+    <h2>{ copy.H2 }</h2>
     <p>{ copy.P }</p>
     <AmountSelector />
   </div>
