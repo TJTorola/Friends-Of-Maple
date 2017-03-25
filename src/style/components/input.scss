@@ -1,3 +1,50 @@
 .Input {
-  
+	display: flex;
+	flex-direction: column;
+	margin: 25px;
+	position: relative;
+
+  &:hover label {
+    color: $green;
+  }
+
+  input {
+    border-bottom: 3px solid $lightGray;
+  	flex: 1 1 auto;
+  	order: 2;
+    padding: 5px;
+  }
+
+  input:focus + label {
+    transform: scale(0.8) translate3d(0, 5px, 0);
+    color: $green;
+  }
+
+  label {
+    color: $lightGray;
+    pointer-events: none;
+    transition: 200ms ease all;
+    transform-origin: left top;
+    transform: scale(1) translate3d(0, 22px, 0);
+  }
+
+  .bar {
+    display: block;
+  	order: 3;
+  	top: 0;
+  }
+
+  .bar::before {
+  	background: $green;
+  	bottom: 0;
+  	content: "";
+  	height: 3px;
+  	position: absolute;
+  	transition: 200ms ease all;
+  	width: 0;
+  }
+
+  input:focus ~ .bar::before {
+    width: 100%;
+  }
 }
