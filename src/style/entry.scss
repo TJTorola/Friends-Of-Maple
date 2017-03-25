@@ -1,5 +1,4 @@
 // list of css in the main namespace:
-// html, body
 // #app
 // #root
 
@@ -12,6 +11,7 @@
 // #payment
 
 // .AmountSelector
+// .Input
 
 @import './vars.scss';
 
@@ -27,3 +27,4 @@
 @import './body/info.scss';
 
 @import './components/amountSelector.scss';
+@import './components/input.scss';
