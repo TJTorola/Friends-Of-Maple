@@ -21,3 +21,8 @@ h2 {
 h3 {
   font-size: 1.4em;
 }
+
+::selection {
+  background: $green;
+  color: white;
+}
