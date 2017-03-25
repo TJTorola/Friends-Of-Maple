@@ -41,7 +41,7 @@ export const INFO_FORM = [
       cols: 8,
     },
     {
-      field: 'zipCode'
+      field: 'zipCode',
       placeholder: 'Zip Code',
       required: true,
       cols: 4,

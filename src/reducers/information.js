@@ -13,7 +13,7 @@ export default {
 
   phoneNum: {
     initialValue: '',
-  }
+  },
 
   address: {
     initialValue: '',
