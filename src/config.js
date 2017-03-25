@@ -26,6 +26,9 @@ export const PLANS = {
   },
 }
 
+export const DEFAULT_PLAN = 'fom-50';
+export const INITIAL_AMOUNT = PLANS[DEFAULT_PLAN].amount;
+
 export const INCREMENTS = [
   PLANS['fom-10'],
   PLANS['fom-20'],
