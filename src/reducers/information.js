@@ -7,11 +7,23 @@ export default {
     initialValue: '',
   },
 
-  phoneNum: {
+  email: {
     initialValue: '',
   },
 
-  address: {
+  phoneNum: {
     initialValue: '',
   }
+
+  address: {
+    initialValue: '',
+  },
+
+  city: {
+    initialValue: '',
+  },
+
+  state: {
+    initialValue: '',
+  },
 }
