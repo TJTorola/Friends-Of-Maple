@@ -22,7 +22,7 @@ export const applyMiddlewareMaps = (...middleware) => (
 export const reducerFromMap = ({ initialValue, ...handlers }) => (
   (state = initialValue, action) => (
     (handlers[action.type])
-      ? handlers[action.type](action, state)
+      ? handlers[action.type](action.payload, state)
       : state
   )
 );
