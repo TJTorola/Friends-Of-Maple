@@ -18,8 +18,8 @@ const Row = ({ row, onChange }) => (
   </div>
 );
 
-const mCell = (onChange) => (cell, idx) => (
-  <Cell key={idx} cell={cell} onChange={onChange} />
+const mCell = (onChange) => (cell, idx, { length }) => (
+  <Cell key={idx} cell={cell} onChange={onChange} isLast={idx === length - 1} />
 );
 
 export default Form;
