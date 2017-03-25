@@ -1,5 +1,14 @@
 #info {
-  h2 {
+  .header {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .header h2 {
     padding: 20px;
+  }
+
+  .header span {
+    color: $gray;
   }
 }

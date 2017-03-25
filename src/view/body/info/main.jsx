@@ -7,7 +7,10 @@ const copy = COPY.BODY.INFO;
 const Info = () => (
   <div id="info">
     <AmountSelector />
-    <h2>{ copy.H2 }</h2>
+    <div className="header">
+      <h2>{ copy.H2 }</h2>
+      <span>{ copy.SPAN }</span>
+    </div>
     <Form form={ INFO_FORM } />
   </div>
 );

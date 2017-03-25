@@ -72,7 +72,8 @@ export const COPY = {
       community and entreprenuers in Uganda, Chile, and around the world.`,
     },
     INFO: {
-      H2: 'Donor Info:',
+      H2: 'Donor Info',
+      SPAN: 'Please provide some account information.'
     },
   },
 };
