@@ -2,6 +2,7 @@ import {
   SET_NAVIGATION,
   SET_NAVIGATION_NEXT,
   SET_NAVIGATION_PREV,
+  SET_NAVIGATION_AMOUNT_TO_INFO,
 } from '~/actions/types';
 
 export const AMOUNT_PAGE = 'AMOUNT';
@@ -31,5 +32,9 @@ export default {
     return (currentIdx > 0)
       ? ORDER[currentIdx - 1]
       : state;
-  }
+  },
+
+  [SET_NAVIGATION_AMOUNT_TO_INFO]: (_, state) => (
+    (state === AMOUNT_PAGE) ? INFO_PAGE : state
+  )
 }
