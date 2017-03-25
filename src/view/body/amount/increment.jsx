@@ -9,7 +9,9 @@ const Increment = ({ last, selectedAmount, selectAmount, increment }) => (
     className={classnames(last, increment.amount === selectedAmount)}
     onClick={() => selectAmount(increment.amount)}
   >
-    { increment.printable }
+    <div className="value">
+      { increment.printable }
+    </div>
   </div>
 );
 

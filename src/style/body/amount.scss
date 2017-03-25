@@ -16,6 +16,13 @@
 
       border-right: 1px solid $lightGray;
 
+      & .value {
+        margin: 0 auto;
+        width: 80%;
+        padding: 8px;
+        border-bottom: 3px solid $lightGray;
+      }
+
       &.is-last {
         border-right: 0;
       }
@@ -24,6 +31,24 @@
         cursor: pointer;
         background: $lightGray;
         color: white;
+
+        & .value {
+          border-color: white;
+        }
+      }
+
+      &.is-selected {
+        & .value {
+          border-color: $green;
+        }
+
+        &:hover {
+          background: $green;
+
+          & .value {
+            border-color: white;
+          }
+        }
       }
     }
   }
