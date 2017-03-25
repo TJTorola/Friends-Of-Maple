@@ -4,6 +4,65 @@ import {
   PAYMENT_PAGE,
 } from '~/reducers/nav';
 
+export const INFO_FORM = [
+  [
+    {
+      field: 'firstName',
+      placeholder: 'First Name',
+      required: true,
+      cols: 6,
+    },
+    {
+      field: 'lastName',
+      placeholder: 'Second Name',
+      required: true,
+      cols: 6,
+    },
+  ],
+  [
+    {
+      field: 'email',
+      placeholder: 'E-Mail',
+      required: true,
+      cols: 8,
+    },
+    {
+      field: 'phoneNum',
+      placeholder: 'Phone Number',
+      required: false,
+      cols: 4,
+    },
+  ],
+  [
+    {
+      field: 'address',
+      placeholder: 'Address',
+      required: true,
+      cols: 8,
+    },
+    {
+      field: 'zipCode'
+      placeholder: 'Zip Code',
+      required: true,
+      cols: 4,
+    }
+  ],
+  [
+    {
+      field: 'city',
+      placeholder: 'City',
+      required: true,
+      cols: 6,
+    },
+    {
+      field: 'state',
+      placeholder: 'State',
+      required: true,
+      cols: 6,
+    }
+  ]
+]
+
 export const COPY = {
   BODY: {
     AMOUNT: {
