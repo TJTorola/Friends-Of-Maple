@@ -1,8 +1,10 @@
 import React from 'react';
 
+import Cell from './cell';
+
 const Row = ({ row, onChange }) => (
   <div className="row">
-    row.map(mCell(onChange))
+    { row.map(mCell(onChange)) }
   </div>
 );
 
