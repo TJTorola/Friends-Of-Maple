@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Nav from './nav';
+import Nav from './nav/main';
 import Amount from './amount/main';
 import Info from './info/main';
 import Payment from './payment/main';

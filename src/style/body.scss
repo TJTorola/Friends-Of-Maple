@@ -22,8 +22,14 @@
       text-align: center;
       text-transform: uppercase;
 
-      &.is-active {
+      cursor: pointer;
+
+      &.is-selected {
         border-color: $green;
+      }
+
+      &:hover {
+        color: $green;
       }
     }
   }

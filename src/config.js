@@ -1,3 +1,9 @@
+import {
+  AMOUNT_PAGE,
+  INFO_PAGE,
+  PAYMENT_PAGE,
+} from '~/reducers/nav';
+
 export const COPY = {
   BODY: {
     AMOUNT: {
@@ -8,9 +14,24 @@ export const COPY = {
     },
     INFO: {
       H2: 'Donor Info:',
-    }
-  }
-}
+    },
+  },
+};
+
+export const STEPS = [
+  {
+    nav: AMOUNT_PAGE,
+    printable: 'Amount',
+  },
+  {
+    nav: INFO_PAGE,
+    printable: 'Information',
+  },
+  {
+    nav: PAYMENT_PAGE,
+    printable: 'Payment',
+  },
+];
 
 export const PLANS = {
   'fom-10': {
