@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Row from './row';
+import Cell from './cell';
 
 const Form = ({ form, onChange }) => (
   <div className="Form">
@@ -10,6 +10,16 @@ const Form = ({ form, onChange }) => (
 
 const mRow = (onChange) => (row, idx) => (
   <Row key={idx} row={row} onChange={onChange} />
+);
+
+const Row = ({ row, onChange }) => (
+  <div className="row">
+    { row.map(mCell(onChange)) }
+  </div>
+);
+
+const mCell = (onChange) => (cell, idx) => (
+  <Cell key={idx} cell={cell} onChange={onChange} />
 );
 
 export default Form;
