@@ -2,6 +2,8 @@ import React from 'react';
 import cx from 'classnames';
 import { connect } from 'react-redux';
 
+import { setNavigation } from '~/actions/index';
+
 const Step = ({ nav, setNav, step }) => (
   <div
     onClick={() => setNav(step.nav)}
