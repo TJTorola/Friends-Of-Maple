@@ -60,7 +60,14 @@
 	}
 
 	&.has-error {
-		label {
+		caret-color: $red;
+
+		::selection {
+			background: $red;
+		}
+
+		label,
+		input:focus + label {
 			color: $red;
 		}
 
