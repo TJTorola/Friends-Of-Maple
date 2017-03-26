@@ -15,10 +15,14 @@
     padding: 5px;
   }
 
-  input:focus + label {
+  input:focus + label,
+	input:valid + label {
     transform: scale(0.8) translate3d(0, 5px, 0);
-    color: $green;
   }
+
+	input:focus + label {
+		color: $green;
+	}
 
   label {
     color: $gray;
