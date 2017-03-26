@@ -6,14 +6,13 @@ import { Input } from '~/components/index';
 const Cell = ({
   cell: {
     cols,
-    placeholder,
-    type,
+    ...rest,
   },
   onChange,
   isLast,
 }) => (
   <div className={classnames(isLast, cols)}>
-    <Input placeholder={placeholder} type={type} />
+    <Input {...rest} />
   </div>
 );
 

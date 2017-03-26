@@ -4,17 +4,32 @@ import {
   PAYMENT_PAGE,
 } from '~/reducers/nav';
 
+import {
+  setInformationFirstName,
+  setInformationLastName,
+  setInformationEmail,
+  setInformationPhone,
+  setInformationAddress,
+  setInformationCity,
+  setInformationState,
+  setInformationZip,
+} from '~/actions/index';
+
 export const INFO_FORM = [
   [
     {
       field: 'firstName',
+      setter: setInformationFirstName,
+      getter: (state) => state.information.firstName,
       placeholder: 'First Name',
       required: true,
       cols: 6,
     },
     {
       field: 'lastName',
-      placeholder: 'Second Name',
+      setter: setInformationLastName,
+      getter: (state) => state.information.lastName,
+      placeholder: 'Last Name',
       required: true,
       cols: 6,
     },
@@ -22,12 +37,16 @@ export const INFO_FORM = [
   [
     {
       field: 'email',
+      setter: setInformationEmail,
+      getter: (state) => state.information.email,
       placeholder: 'E-Mail',
       required: true,
       cols: 8,
     },
     {
-      field: 'phoneNum',
+      field: 'phone',
+      setter: setInformationPhone,
+      getter: (state) => state.information.phone,
       placeholder: 'Phone Number',
       required: false,
       cols: 4,
@@ -36,12 +55,16 @@ export const INFO_FORM = [
   [
     {
       field: 'address',
+      setter: setInformationAddress,
+      getter: (state) => state.information.address,
       placeholder: 'Address',
       required: true,
       cols: 8,
     },
     {
       field: 'zipCode',
+      setter: setInformationCity,
+      getter: (state) => state.information.zipCode,
       placeholder: 'Zip Code',
       required: true,
       cols: 4,
@@ -50,12 +73,16 @@ export const INFO_FORM = [
   [
     {
       field: 'city',
+      setter: setInformationState,
+      getter: (state) => state.information.city,
       placeholder: 'City',
       required: true,
       cols: 6,
     },
     {
       field: 'state',
+      setter: setInformationZip,
+      getter: (state) => state.information.state,
       placeholder: 'State',
       required: true,
       cols: 6,

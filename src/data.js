@@ -66,10 +66,10 @@ export const MONTHS = [
   '12 - December',
 ];
 
-export const YEARS = nextNYears(10).map(y => y.toString());
-
-const nextNYears = (n, years = [], year = new Date().getFullYear()) => (
-  (n > 0)
-    ? nextNYears(n - 1, [...years, year], year + 1)
-    : years
-);
+// const nextNYears = (n, years = [], year = new Date().getFullYear()) => (
+//   (n > 0)
+//     ? nextNYears(n - 1, [...years, year], year + 1)
+//     : years
+// );
+//
+// export const YEARS = nextNYears(10).map(y => y.toString());

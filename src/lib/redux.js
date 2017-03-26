@@ -40,5 +40,5 @@ export const deepReducerFromMap = (deepReducerMap) => {
 };
 
 export const createAction = (type) => (payload) => (
-  payload ? { type, payload } : { type }
+  (payload !== undefined) ? { type, payload } : { type }
 );
