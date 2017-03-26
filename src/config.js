@@ -111,6 +111,9 @@ export const COPY = {
       H2: 'Donor Info',
       SPAN: 'Please provide some account information.'
     },
+    PAYMENT: {
+      H2: 'Donor:',
+    }
   },
 };
 

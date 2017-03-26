@@ -1,0 +1,15 @@
+#payment {
+  .donor-info {
+    display: flex;
+    align-items: baseline;
+    border-bottom: 1px solid $lightGray;
+  }
+
+  .donor-info h2 {
+    padding: 20px;
+  }
+
+  .donor-info span {
+    color: $gray;
+  }
+}
