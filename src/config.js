@@ -15,6 +15,11 @@ import {
   setInformationZip,
 } from '~/actions/index';
 
+import {
+  toPhone,
+  toZip,
+} from '~/lib/masks';
+
 export const INFO_FORM = [
   [
     {
@@ -47,6 +52,7 @@ export const INFO_FORM = [
       field: 'phone',
       setter: setInformationPhone,
       getter: (state) => state.information.phone,
+      mask: toPhone,
       placeholder: 'Phone Number',
       required: false,
       cols: 4,
@@ -65,6 +71,7 @@ export const INFO_FORM = [
       field: 'zipCode',
       setter: setInformationZip,
       getter: (state) => state.information.zip,
+      mask: toZip,
       placeholder: 'Zip Code',
       required: true,
       cols: 4,
