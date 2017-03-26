@@ -12,7 +12,7 @@ import {
 
   CLEAR_ERRORS,
   CLEAR_INFORMATION_ERRORS,
-  SET_INFOMATION_ERRORS,
+  SET_INFORMATION_ERRORS,
 } from '~/actions/types';
 
 export default {
@@ -62,13 +62,13 @@ export default {
     initialValue: '',
     [CLEAR_INFORMATION]: () => '',
     [SET_INFORMATION_ZIP]: (value) => value,
-  }
+  },
 
   errors: {
     initialValue: {},
-    [CLEAR_ERRORS]: () => {},
-    [CLEAR_INFORMATION_ERRORS]: () => {},
-    [CLEAR_INFORMATION]: () => {},
-    [SET_INFOMATION_ERRORS]: ({ errors }) => errors,
+    [CLEAR_ERRORS]: () => ({}),
+    [CLEAR_INFORMATION_ERRORS]: () => ({}),
+    [CLEAR_INFORMATION]: () => ({}),
+    [SET_INFORMATION_ERRORS]: (errors) => errors,
   }
 }

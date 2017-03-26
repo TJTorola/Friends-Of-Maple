@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Cell from './cell';
-import { mapFormGrid } from '~/config';
+import { mapFormGrid } from '~/lib/form';
 
 const Form = ({ form }) => (
   <div className="Form">

@@ -19,8 +19,10 @@ import {
   SET_INFORMATION_STATE,
   SET_INFORMATION_ZIP,
 
-  SET_INFOMATION_ERRORS,
+  SET_INFORMATION_ERRORS,
   CLEAR_INFORMATION_ERRORS,
+
+  ADVANCE_TO_PAYMENT,
 } from './types';
 
 export const setNavigation = createAction(SET_NAVIGATION);
@@ -41,3 +43,5 @@ export const setInformationZip = createAction(SET_INFORMATION_ZIP);
 
 export const setInformationErrors = createAction(SET_INFORMATION_ERRORS);
 export const clearInformationErrors = createAction(CLEAR_INFORMATION_ERRORS);
+
+export const advanceToPayment = createAction(ADVANCE_TO_PAYMENT);

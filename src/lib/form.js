@@ -5,18 +5,22 @@ const RULES = {
 const test = (rules, input) => (
   Object
     .keys(rules)
-    .select(rule => !RULES[rule](input))
+    .filter(rule => !RULES[rule](input))
     .map(rule => rules[rule])
 );
 
 export const testForm = (inputs, fields) => (
   Object
     .keys(inputs)
-    .reduce((errs, inputKey) => (
-      (const rules = fields[inputKey] && fields[inputKey].rules)
-        ? [...errs, ...test(rules, inputs[valueKey])]
+    .reduce((errs, inputKey) => {
+      const field = fields[inputKey];
+      const rules = field && field.rules;
+      const inputErrs = rules && test(rules, inputs[inputKey]);
+
+      return (inputErrs && inputErrs.length > 0)
+        ? Object.assign(errs, { [inputKey]: inputErrs })
         : errs
-    ), [])
+    }, {})
 );
 
 export const mapFormGrid = ({ grid, fields }) => (
