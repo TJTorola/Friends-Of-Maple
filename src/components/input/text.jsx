@@ -14,7 +14,7 @@ const TextInput = ({ printable, errors, value, setValue, mask }) => {
       <input onChange={handleChange} value={value} ref={el => input = el} required />
       <label>{ printable }</label>
       <span className="bar" />
-      { errors && <span className="error">{ errors[0] }</span> }
+      <span className="error">{ (errors && errors[0]) || ' ' }</span>
     </div>
   );
 }

@@ -11,8 +11,7 @@
 
   input {
     border-bottom: 3px solid $lightGray;
-  	flex: 1 1 auto;
-  	order: 2;
+		order: 2;
     padding: 5px;
   }
 
@@ -33,11 +32,10 @@
     transform: scale(1) translate3d(0, 22px, 0);
   }
 
-  .bar {
-    display: block;
-  	order: 3;
-  	top: 0;
-  }
+	.bar {
+		position: relative;
+		top: 31px;
+	}
 
   .bar::before {
   	background: $green;
@@ -52,4 +50,23 @@
   input:focus ~ .bar::before {
     width: 100%;
   }
+
+	.error {
+		color: $red;
+		padding-top: 2px;
+		font-size: .7rem;
+		height: 10px;
+		order: 2;
+	}
+
+	&.has-error {
+		label {
+			color: $red;
+		}
+
+		.bar::before {
+			width: 100%;
+			background: $red;
+		}
+	}
 }
