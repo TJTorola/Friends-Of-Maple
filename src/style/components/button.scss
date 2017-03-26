@@ -1,0 +1,30 @@
+.Button {
+  cursor: pointer;
+  width: 250px;
+  text-align: center;
+  margin: 10px;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 8px;
+  text-transform: uppercase;
+
+  &.is-green {
+    color: $green;
+    border-color: $green;
+
+    &:hover {
+      color: $darkGreen;
+      border-color: $darkGreen;
+    }
+  }
+
+  &.is-gray {
+    color: $gray;
+    border-color: $gray;
+
+    &:hover {
+      color: black;
+      border-color: black;
+    }
+  }
+}

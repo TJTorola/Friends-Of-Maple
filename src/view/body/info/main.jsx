@@ -12,6 +12,14 @@ const Info = () => (
       <span>{ copy.SPAN }</span>
     </div>
     <Form form={ INFO_FORM } />
+    <div className="nav-buttons">
+      <div className="Button is-gray">
+        Back
+      </div>
+      <div className="Button is-green">
+        Next
+      </div>
+    </div>
   </div>
 );
 
