@@ -20,82 +20,76 @@ import {
   toZip,
 } from '~/lib/masks';
 
-export const INFO_FORM = [
-  [
-    {
-      field: 'firstName',
+export const INFO_FORM = {
+  fields: {
+    firstName: {
+      id: 'firstName',
       setter: setInformationFirstName,
       getter: (state) => state.information.firstName,
-      placeholder: 'First Name',
-      required: true,
-      cols: 6,
+      printable: 'First Name',
+      rules: {
+        required: 'First Name is Required',
+      },
     },
-    {
-      field: 'lastName',
+    lastName: {
+      id: 'lastName',
       setter: setInformationLastName,
       getter: (state) => state.information.lastName,
-      placeholder: 'Last Name',
-      required: true,
-      cols: 6,
+      printable: 'Last Name',
+      rules: {
+        required: 'Last Name is Required',
+      },
     },
-  ],
-  [
-    {
-      field: 'email',
+    email: {
+      id: 'email',
       setter: setInformationEmail,
       getter: (state) => state.information.email,
-      placeholder: 'E-Mail',
-      required: true,
-      cols: 8,
+      printable: 'E-Mail',
+      rules: {
+        required: 'E-Mail is Required',
+      },
     },
-    {
-      field: 'phone',
+    phone: {
+      id: 'phone',
       setter: setInformationPhone,
       getter: (state) => state.information.phone,
       mask: toPhone,
-      placeholder: 'Phone Number',
-      required: false,
-      cols: 4,
+      printable: 'Phone Number',
     },
-  ],
-  [
-    {
-      field: 'address',
+    address: {
+      id: 'address',
       setter: setInformationAddress,
       getter: (state) => state.information.address,
-      placeholder: 'Address',
-      required: true,
-      cols: 8,
+      printable: 'Address',
     },
-    {
-      field: 'zipCode',
+    zipCode: {
+      id: 'zipCode',
       setter: setInformationZip,
       getter: (state) => state.information.zip,
       mask: toZip,
-      placeholder: 'Zip Code',
-      required: true,
-      cols: 4,
-    }
-  ],
-  [
-    {
-      field: 'city',
+      printable: 'Zip Code',
+    },
+    city: {
+      id: 'city',
       setter: setInformationCity,
       getter: (state) => state.information.city,
-      placeholder: 'City',
-      required: true,
-      cols: 6,
+      printable: 'City',
     },
-    {
-      field: 'state',
+    state: {
+      id: 'state',
       setter: setInformationState,
       getter: (state) => state.information.state,
-      placeholder: 'State',
-      required: true,
-      cols: 6,
-    }
-  ]
-]
+      printable: 'State',
+    },
+  },
+
+  grid: [
+    [{ field: 'firstName', cols: 6 }, { field: 'lastName', cols: 6 }],
+    [{ field: 'email', cols: 8 }, { field: 'phone', cols: 4 }],
+    [{ field: 'address', cols: 8 }, { field: 'zipCode', cols: 4 }],
+    [{ field: 'city', cols: 6 }, { field: 'state', cols: 6 }],
+  ],
+};
 
 export const COPY = {
   BODY: {
