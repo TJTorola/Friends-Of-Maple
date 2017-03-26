@@ -1,25 +1,26 @@
 import React from 'react';
 
 import Cell from './cell';
+import { mapFormGrid } from '~/config';
 
-const Form = ({ form, onChange }) => (
+const Form = ({ form }) => (
   <div className="Form">
-    { form.map(mRow(onChange)) }
+    { mapFormGrid(form).map(mRow) }
   </div>
 );
 
-const mRow = (onChange) => (row, idx) => (
-  <Row key={idx} row={row} onChange={onChange} />
+const mRow = (row, idx) => (
+  <Row key={idx} row={row} />
 );
 
-const Row = ({ row, onChange }) => (
+const Row = ({ row }) => (
   <div className="row">
-    { row.map(mCell(onChange)) }
+    { row.map(mCell) }
   </div>
 );
 
-const mCell = (onChange) => (cell, idx, { length }) => (
-  <Cell key={idx} cell={cell} onChange={onChange} isLast={idx === length - 1} />
+const mCell = (cell, idx, { length }) => (
+  <Cell key={idx} cell={cell} isLast={idx === length - 1} />
 );
 
 export default Form;

@@ -1,15 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const TextInput = ({ placeholder, error, value, setValue, mask }) => {
+const TextInput = ({ printable, error, value, setValue, mask }) => {
   const handleChange = ({ target: { value }}) => (
     setValue((mask) ? mask(value) : value)
   );
 
+  let input;
+
   return (
-    <div className="Input">
-      <input onChange={handleChange} value={value} required />
-      <label>{ placeholder }</label>
+    <div className="Input" onClick={() => input.focus()}>
+      <input onChange={handleChange} value={value} ref={el => input = el} required />
+      <label>{ printable }</label>
       <span className="bar" />
       { error && <span className="error">{ error }</span> }
     </div>
