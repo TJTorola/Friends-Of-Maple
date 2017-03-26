@@ -63,8 +63,8 @@ export const INFO_FORM = [
     },
     {
       field: 'zipCode',
-      setter: setInformationCity,
-      getter: (state) => state.information.zipCode,
+      setter: setInformationZip,
+      getter: (state) => state.information.zip,
       placeholder: 'Zip Code',
       required: true,
       cols: 4,
@@ -73,7 +73,7 @@ export const INFO_FORM = [
   [
     {
       field: 'city',
-      setter: setInformationState,
+      setter: setInformationCity,
       getter: (state) => state.information.city,
       placeholder: 'City',
       required: true,
@@ -81,7 +81,7 @@ export const INFO_FORM = [
     },
     {
       field: 'state',
-      setter: setInformationZip,
+      setter: setInformationState,
       getter: (state) => state.information.state,
       placeholder: 'State',
       required: true,
