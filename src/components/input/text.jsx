@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import cx from 'classnames';
 
-const TextInput = ({ printable, error, value, setValue, mask }) => {
+const TextInput = ({ printable, errors, value, setValue, mask }) => {
   const handleChange = ({ target: { value }}) => (
     setValue((mask) ? mask(value) : value)
   );
@@ -9,17 +10,23 @@ const TextInput = ({ printable, error, value, setValue, mask }) => {
   let input;
 
   return (
-    <div className="Input" onClick={() => input.focus()}>
+    <div className={classnames(errors)} onClick={() => input.focus()}>
       <input onChange={handleChange} value={value} ref={el => input = el} required />
       <label>{ printable }</label>
       <span className="bar" />
-      { error && <span className="error">{ error }</span> }
+      { errors && <span className="error">{ errors[0] }</span> }
     </div>
   );
 }
 
-const mapStateToProps = (state, { getter }) => ({
+const classnames = (errors) => cx(
+  'Input',
+  { 'has-error': errors }
+);
+
+const mapStateToProps = (state, { getter, errors }) => ({
   value: getter(state),
+  errors: errors(state),
 });
 
 const mapDispatchToProps = (dispatch, { setter }) => ({
