@@ -23,6 +23,12 @@ import {
   CLEAR_INFORMATION_ERRORS,
 
   ADVANCE_TO_PAYMENT,
+
+  SET_PAYMENT_CARD_NUMBER,
+  SET_PAYMENT_EXPERATION,
+  SET_PAYMENT_NAME,
+  SET_PAYMENT_CSV,
+  SET_PAYMENT_ZIP,
 } from './types';
 
 export const setNavigation = createAction(SET_NAVIGATION);
@@ -45,3 +51,9 @@ export const setInformationErrors = createAction(SET_INFORMATION_ERRORS);
 export const clearInformationErrors = createAction(CLEAR_INFORMATION_ERRORS);
 
 export const advanceToPayment = createAction(ADVANCE_TO_PAYMENT);
+
+export const setPaymentCardNumber = createAction(SET_PAYMENT_CARD_NUMBER);
+export const setPaymentExperation = createAction(SET_PAYMENT_EXPERATION);
+export const setPaymentName = createAction(SET_PAYMENT_NAME);
+export const setPaymentCsv = createAction(SET_PAYMENT_CSV);
+export const setPaymentZip = createAction(SET_PAYMENT_ZIP);

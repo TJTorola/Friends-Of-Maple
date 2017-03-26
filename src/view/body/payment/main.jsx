@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { AmountSelector } from '~/components/index';
-import { COPY } from '~/config';
+import { AmountSelector, Form } from '~/components/index';
+import { COPY, PAYMENT_FORM } from '~/config';
 const copy = COPY.BODY.PAYMENT;
 
 const Payment = ({ firstName, lastName }) => (
@@ -10,8 +10,9 @@ const Payment = ({ firstName, lastName }) => (
     <AmountSelector />
     <div className="donor-info">
       <h2>{ copy.H2 }</h2>
-      <span>{ `${firstName} ${lastName}` }</span>
+      <span>{ `${firstName} ${lastName}`.trim() }</span>
     </div>
+    <Form form={ PAYMENT_FORM } />
   </div>
 );
 

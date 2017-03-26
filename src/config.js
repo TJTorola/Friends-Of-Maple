@@ -13,12 +13,89 @@ import {
   setInformationCity,
   setInformationState,
   setInformationZip,
+
+  setPaymentCardNumber,
+  setPaymentExperation,
+  setPaymentName,
+  setPaymentCsv,
+  setPaymentZip,
 } from '~/actions/index';
 
 import {
   toPhone,
   toZip,
+  toCardNumber,
+  toExperation,
 } from '~/lib/masks';
+
+export const PAYMENT_FORM = {
+  fields: {
+    cardNumber: {
+      id: 'cardNumber',
+      setter: setPaymentCardNumber,
+      getter: (state) => state.payment.cardNumber,
+      errors: (state) => state.payment.errors.cardNumber,
+      printable: 'Card Number',
+      mask: toCardNumber,
+      rules: {
+        required: 'Card Number is Required',
+      },
+    },
+    experation: {
+      id: 'experation',
+      setter: setPaymentExperation,
+      getter: (state) => state.payment.experation,
+      errors: (state) => state.payment.errors.experation,
+      printable: 'Experation',
+      mask: toExperation,
+      rules: {
+        required: 'Experation Date is Required',
+      },
+    },
+    name: {
+      id: 'name',
+      setter: setPaymentName,
+      getter: (state) => (
+        state.payment.name
+        || (`${state.information.firstName} ${state.information.lastName}`)
+      ),
+      errors: (state) => state.payment.errors.name,
+      printable: 'Name on Card',
+      rules: {
+        required: 'Name is Required',
+      },
+    },
+    csv: {
+      id: 'csv',
+      setter: setPaymentCsv,
+      getter: (state) => state.payment.csv,
+      errors: (state) => state.payment.errors.csv,
+      printable: 'Security Code',
+      rules: {
+        required: 'Security Code is Required',
+      },
+    },
+    zip: {
+      id: 'zip',
+      setter: setPaymentZip,
+      getter: (state) => state.payment.zip || state.information.zip,
+      errors: (state) => state.payment.errors.zip,
+      printable: 'Billing Zip Code',
+      rules: {
+        required: 'Billing Zip Code is Required',
+      },
+    },
+  },
+
+  grid: [
+    [{ field: 'name', cols: 8 }, { field: 'zip', cols: 4 }],
+    [
+      { field: 'cardNumber', cols: 6 },
+      { field: 'experation', cols: 3 },
+      { field: 'csv', cols: 3 },
+    ],
+  ],
+}
 
 export const INFO_FORM = {
   fields: {
