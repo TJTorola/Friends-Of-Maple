@@ -91,18 +91,6 @@ export const INFO_FORM = {
   ],
 };
 
-// TODO: Move to lib
-export const mapFormGrid = ({ grid, fields }) => (
-  grid.map(row => (
-    row.map(cell => (
-      Object.assign({}, {
-        field: fields[cell.field],
-        cols: cell.cols,
-      })
-    ))
-  ))
-);
-
 export const COPY = {
   BODY: {
     AMOUNT: {

@@ -1,6 +1,8 @@
 import { createAction } from '~/lib/redux';
 
 import {
+  CLEAR_ERRORS,
+
   SET_NAVIGATION,
   SET_NAVIGATION_NEXT,
   SET_NAVIGATION_PREV,
@@ -16,6 +18,9 @@ import {
   SET_INFORMATION_CITY,
   SET_INFORMATION_STATE,
   SET_INFORMATION_ZIP,
+
+  SET_INFOMATION_ERRORS,
+  CLEAR_INFORMATION_ERRORS,
 } from './types';
 
 export const setNavigation = createAction(SET_NAVIGATION);
@@ -33,3 +38,6 @@ export const setInformationAddress = createAction(SET_INFORMATION_ADDRESS);
 export const setInformationCity = createAction(SET_INFORMATION_CITY);
 export const setInformationState = createAction(SET_INFORMATION_STATE);
 export const setInformationZip = createAction(SET_INFORMATION_ZIP);
+
+export const setInformationErrors = createAction(SET_INFORMATION_ERRORS);
+export const clearInformationErrors = createAction(CLEAR_INFORMATION_ERRORS);

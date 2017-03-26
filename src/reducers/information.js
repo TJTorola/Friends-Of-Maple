@@ -1,5 +1,6 @@
 import {
   CLEAR_INFORMATION,
+
   SET_INFORMATION_FIRST_NAME,
   SET_INFORMATION_LAST_NAME,
   SET_INFORMATION_EMAIL,
@@ -8,6 +9,10 @@ import {
   SET_INFORMATION_CITY,
   SET_INFORMATION_STATE,
   SET_INFORMATION_ZIP,
+
+  CLEAR_ERRORS,
+  CLEAR_INFORMATION_ERRORS,
+  SET_INFOMATION_ERRORS,
 } from '~/actions/types';
 
 export default {
@@ -57,5 +62,13 @@ export default {
     initialValue: '',
     [CLEAR_INFORMATION]: () => '',
     [SET_INFORMATION_ZIP]: (value) => value,
+  }
+
+  errors: {
+    initialValue: {},
+    [CLEAR_ERRORS]: () => {},
+    [CLEAR_INFORMATION_ERRORS]: () => {},
+    [CLEAR_INFORMATION]: () => {},
+    [SET_INFOMATION_ERRORS]: ({ errors }) => errors,
   }
 }
