@@ -3,9 +3,17 @@ import cx from 'classnames';
 
 import { Input } from '~/components/index';
 
-const Cell = ({ cell, onChange, isLast }) => (
-  <div className={classnames(isLast, cell.cols)}>
-    <Input placeholder={cell.placeholder} />
+const Cell = ({
+  cell: {
+    cols,
+    placeholder,
+    type,
+  },
+  onChange,
+  isLast,
+}) => (
+  <div className={classnames(isLast, cols)}>
+    <Input placeholder={placeholder} type={type} />
   </div>
 );
 
