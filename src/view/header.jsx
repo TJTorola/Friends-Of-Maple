@@ -1,5 +1,12 @@
 import React from 'react';
 
-const Header = () => <div id="header"></div>;
+import { COPY } from '~/config';
+const copy = COPY.HEADER;
+
+const Header = () => (
+  <div id="header">
+    <h1>{ copy.H1 }</h1>
+  </div>
+);
 
 export default Header;

@@ -179,6 +179,9 @@ export const INFO_FORM = {
 };
 
 export const COPY = {
+  HEADER: {
+    H1: 'Friends of Maple',
+  },
   BODY: {
     AMOUNT: {
       H2: 'Become a Friend of Maple',

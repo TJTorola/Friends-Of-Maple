@@ -1,6 +1,16 @@
 #header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   height: 150px;
 
   border-bottom: 1px solid $lightGray;
   background-size: cover;
+
+  h1 {
+    font-size: 80px;
+    color: white;
+    font-family: 'Amatic SC', cursive;
+  }
 }
