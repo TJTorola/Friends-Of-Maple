@@ -10,3 +10,4 @@ export const toCardNumber = (input) => (
     : toPattern(input, '9999 9999 9999 9999')
 );
 export const toExperation = mask("99/99");
+export const toCsc = mask("9999");

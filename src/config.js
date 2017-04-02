@@ -26,6 +26,7 @@ import {
   toZip,
   toCardNumber,
   toExperation,
+  toCsc,
 } from '~/lib/masks';
 
 export const PAYMENT_FORM = {
@@ -71,6 +72,7 @@ export const PAYMENT_FORM = {
       getter: (state) => state.payment.csv,
       errors: (state) => state.payment.errors.csv,
       printable: 'Security Code',
+      mask: toCsc,
       rules: {
         required: 'Security Code is Required',
       },
