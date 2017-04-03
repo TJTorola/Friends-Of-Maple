@@ -1,5 +1,11 @@
 import React from 'react';
 
-const Processing = () => <div>Processing</div>;
+import Gear from '~/components/gear';
+
+const Processing = () => (
+  <div>
+    <Gear />
+  </div>
+);
 
 export default Processing;
