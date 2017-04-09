@@ -22,19 +22,17 @@ async function postPledge({ getState, dispatch }) {
     return;
   };
 
-  unblockUser();
-
   try {
     await getStripeToken(getState, dispatch);
-  //   await postPlanSubscription(getState, dispatch);
+    await postPlanSubscription(getState, dispatch);
   } catch (e) {
     console.error(e);
+    // dispatch(setPledgeError(e));
     unblockUser();
-  //   dispatch(setPledgeError(e));
     return;
   }
-  //
-  // unblockUser();
+
+  unblockUser();
   // dispatch(setPledgeSuccess());
 }
 
@@ -61,7 +59,7 @@ async function getStripeToken(getState, dispatch) {
   } = getState();
   const [expMonth, expYear] = experation.split('/').map(str => parseInt(str));
 
-  const token = await createCardToken({
+  const response = await createCardToken({
     name: name,
     number: cardNumber,
     cvc: csv,
@@ -69,6 +67,7 @@ async function getStripeToken(getState, dispatch) {
     exp_year: expYear,
     address_zip: zip,
   });
+  const token = response.id;
 
   dispatch(setPledgePaymentToken(token));
 }
