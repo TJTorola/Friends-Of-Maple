@@ -18,16 +18,22 @@ const contentMap = {
   [PAYMENT_PAGE]: <Payment />,
 };
 
-const Body = ({ nav, processingPledge }) => (
-  <div id="body">
-    <Nav />
-    {
-      processingPledge
-      ? <Processing />
-      : contentMap[nav]
-    }
-  </div>
-);
+const Body = ({ nav, processingPledge }) => {
+  if (processingPledge) {
+    return (
+      <div id="body">
+        <Processing />
+      </div>
+    );
+  }
+
+  return (
+    <div id="body">
+      <Nav />
+      { contentMap[nav] }
+    </div>
+  );
+};
 
 const mapStateToProps = (state) => ({
   processingPledge: state.pledge.processing,

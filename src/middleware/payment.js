@@ -15,17 +15,17 @@ const validate = (getState, dispatch) = {
   const hasInformationErrors = Object.keys(information.errors).length > 0;
   const hasPaymentErrors = Object.keys(payment.errors).length > 0;
 
-  if (hasInformationErrors || hasPaymentErrors) {
-    dispatch(setPledgeProcessing(false));
-    return false;
-  }
-  return true;
+  return !hasInformationErrors && !hasPaymentErrors;
 }
 
 async function postPledge({ getState, dispatch }) {
-  dispatch(setPledgeProcessing(true));
+  const blockUser = () => dispatch(setPledgeProcessing(true));
+  const unblockUser = () => dispatch(setPledgeProcessing(false));
+
+  blockUser();
 
   if (!validate(getState, dispatch)) {
+    unblockUser();
     return;
   };
 
@@ -33,12 +33,12 @@ async function postPledge({ getState, dispatch }) {
     await getStripeToken(getState, dispatch);
     await postPlanSubscription(getState, dispatch);
   } catch (e) {
-    dispatch(setPledgeProcessing(false));
+    unblockUser();
     dispatch(setPledgeError(e));
     return;
   }
 
-  dispatch(setPledgeProcessing(false));
+  unblockUser();
   dispatch(setPledgeSuccess());
 }
 
