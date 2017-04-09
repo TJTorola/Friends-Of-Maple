@@ -56,10 +56,7 @@ export const PAYMENT_FORM = {
     name: {
       id: 'name',
       setter: setPaymentName,
-      getter: (state) => (
-        state.payment.name
-        || (`${state.information.firstName} ${state.information.lastName}`)
-      ),
+      getter: (state) => state.payment.name,
       errors: (state) => state.payment.errors.name,
       printable: 'Name on Card',
       rules: {
@@ -80,7 +77,7 @@ export const PAYMENT_FORM = {
     zip: {
       id: 'zip',
       setter: setPaymentZip,
-      getter: (state) => state.payment.zip || state.information.zip,
+      getter: (state) => state.payment.zip,
       errors: (state) => state.payment.errors.zip,
       printable: 'Billing Zip Code',
       rules: {
