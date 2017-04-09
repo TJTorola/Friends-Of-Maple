@@ -29,6 +29,10 @@ import {
   toCsc,
 } from '~/lib/masks';
 
+export const KEYS = {
+  stripe: 'pk_test_1mpUmvYGwBprD3L9QvyzdDg5',
+};
+
 export const PAYMENT_FORM = {
   fields: {
     cardNumber: {
@@ -39,7 +43,7 @@ export const PAYMENT_FORM = {
       printable: 'Card Number',
       mask: toCardNumber,
       rules: {
-        required: 'Card Number is Required',
+        validCCNum: 'A Valid Card Number is Required',
       },
     },
     experation: {
@@ -50,7 +54,7 @@ export const PAYMENT_FORM = {
       printable: 'Experation',
       mask: toExperation,
       rules: {
-        required: 'Experation Date is Required',
+        validCCExp: 'A Valid Experation Date is Required',
       },
     },
     name: {
@@ -71,7 +75,7 @@ export const PAYMENT_FORM = {
       printable: 'Security Code',
       mask: toCsc,
       rules: {
-        required: 'Security Code is Required',
+        validCCCVC: 'A Valid Security Code is Required',
       },
     },
     zip: {

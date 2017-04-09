@@ -6,17 +6,7 @@ import {
 import {
   POST_PLEDGE,
 } from '~/actions/types';
-
-const validate = (getState, dispatch) => {
-  dispatch(validateInformation());
-  dispatch(validatePayment());
-
-  const { information, payment } = getState();
-  const hasInformationErrors = Object.keys(information.errors).length > 0;
-  const hasPaymentErrors = Object.keys(payment.errors).length > 0;
-
-  return !hasInformationErrors && !hasPaymentErrors;
-}
+import Stripe from '~/lib/stripe';
 
 async function postPledge({ getState, dispatch }) {
   const blockUser = () => dispatch(setPledgeProcessing(true));
@@ -31,17 +21,31 @@ async function postPledge({ getState, dispatch }) {
 
   unblockUser();
 
-  // try {
-  //   await getStripeToken(getState, dispatch);
+  try {
+    await getStripeToken(getState, dispatch);
   //   await postPlanSubscription(getState, dispatch);
-  // } catch (e) {
-  //   unblockUser();
+  } catch (e) {
+    unblockUser();
   //   dispatch(setPledgeError(e));
-  //   return;
-  // }
+    return;
+  }
   //
   // unblockUser();
   // dispatch(setPledgeSuccess());
+}
+
+const validate = (getState, dispatch) => {
+  dispatch(validateInformation());
+  dispatch(validatePayment());
+
+  const { information, payment } = getState();
+  const hasInformationErrors = Object.keys(information.errors).length > 0;
+  const hasPaymentErrors = Object.keys(payment.errors).length > 0;
+
+  return !hasInformationErrors && !hasPaymentErrors;
+}
+
+async function getStripeToken(getState, dispatch) {
 }
 
 export default {
