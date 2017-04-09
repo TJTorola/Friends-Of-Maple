@@ -18,7 +18,7 @@ const ORDER = [
 export default {
   initialValue: AMOUNT_PAGE,
 
-  [SET_NAVIGATION]: ({ nav }) => nav,
+  [SET_NAVIGATION]: (nav) => nav,
 
   [SET_NAVIGATION_NEXT]: (_, state) => {
     const currentIdx = ORDER.indexOf(state);
