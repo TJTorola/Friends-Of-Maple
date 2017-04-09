@@ -1,10 +1,10 @@
 import {
-  POST_PLEGE,
+  SET_PLEDGE_PROCESSING,
 } from '~/actions/types';
 
 export default {
   processing: {
     initialValue: false,
-    [POST_PLEGE]: () => true,
+    [SET_PLEDGE_PROCESSING]: (processing) => processing,
   }
 };

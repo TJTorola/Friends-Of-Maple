@@ -26,6 +26,10 @@ export const SET_PAYMENT_NAME = 'SET_PAYMENT_NAME';
 export const SET_PAYMENT_CSV = 'SET_PAYMENT_CSV';
 export const SET_PAYMENT_ZIP = 'SET_PAYMENT_ZIP';
 
+export const SET_PLEDGE_PROCESSING = 'SET_PLEDGE_PROCESSING';
+
 // Side effects follow
-export const POST_PLEGE = 'POST_PLEGE';
 export const VALIDATE_INFORMATION = 'VALIDATE_INFORMATION';
+export const VALIDATE_PAYMENT = 'VALIDATE_PAYMENT';
+
+export const POST_PLEDGE = 'POST_PLEDGE';

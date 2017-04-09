@@ -7,7 +7,7 @@ import {
   POST_PLEDGE,
 } from '~/actions/types';
 
-const validate = (getState, dispatch) = {
+const validate = (getState, dispatch) => {
   dispatch(validateInformation());
   dispatch(validatePayment());
 
@@ -29,19 +29,21 @@ async function postPledge({ getState, dispatch }) {
     return;
   };
 
-  try {
-    await getStripeToken(getState, dispatch);
-    await postPlanSubscription(getState, dispatch);
-  } catch (e) {
-    unblockUser();
-    dispatch(setPledgeError(e));
-    return;
-  }
-
   unblockUser();
-  dispatch(setPledgeSuccess());
+
+  // try {
+  //   await getStripeToken(getState, dispatch);
+  //   await postPlanSubscription(getState, dispatch);
+  // } catch (e) {
+  //   unblockUser();
+  //   dispatch(setPledgeError(e));
+  //   return;
+  // }
+  //
+  // unblockUser();
+  // dispatch(setPledgeSuccess());
 }
 
-const paymentMiddleware = {
-  [POST_PLEDGE]: (_, store) => postPledge(store);
+export default {
+  [POST_PLEDGE]: (_, store) => postPledge(store),
 }

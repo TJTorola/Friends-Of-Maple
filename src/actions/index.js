@@ -28,8 +28,12 @@ import {
   SET_PAYMENT_CSV,
   SET_PAYMENT_ZIP,
 
+  SET_PLEDGE_PROCESSING,
+
   VALIDATE_INFORMATION,
-  POST_PLEGE,
+  VALIDATE_PAYMENT,
+
+  POST_PLEDGE,
 } from './types';
 
 export const setNavigation = createAction(SET_NAVIGATION);
@@ -57,5 +61,9 @@ export const setPaymentName = createAction(SET_PAYMENT_NAME);
 export const setPaymentCsv = createAction(SET_PAYMENT_CSV);
 export const setPaymentZip = createAction(SET_PAYMENT_ZIP);
 
+export const setPledgeProcessing = createAction(SET_PLEDGE_PROCESSING);
+
 export const validateInformation = createAction(VALIDATE_INFORMATION);
-export const postPledge = createAction(POST_PLEGE);
+export const validatePayment = createAction(VALIDATE_PAYMENT);
+
+export const postPledge = createAction(POST_PLEDGE);
