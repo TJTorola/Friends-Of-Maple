@@ -23,7 +23,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setNav: (nav) => dispatch(setNavigation({ nav })),
+  setNav: (location) => dispatch(setNavigation(location)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Step);
