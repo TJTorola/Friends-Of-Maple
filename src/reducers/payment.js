@@ -4,6 +4,10 @@ import {
   SET_PAYMENT_NAME,
   SET_PAYMENT_CSV,
   SET_PAYMENT_ZIP,
+
+  CLEAR_ERRORS,
+  CLEAR_PAYMENT_ERRORS,
+  SET_PAYMENT_ERRORS,
 } from '~/actions/types';
 
 export default {
@@ -34,5 +38,8 @@ export default {
 
   errors: {
     initialValue: {},
-  },
+    [CLEAR_ERRORS]: () => ({}),
+    [CLEAR_PAYMENT_ERRORS]: () => ({}),
+    [SET_PAYMENT_ERRORS]: (errors) => errors,
+  }
 }

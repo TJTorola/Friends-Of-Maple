@@ -28,6 +28,9 @@ import {
   SET_PAYMENT_CSV,
   SET_PAYMENT_ZIP,
 
+  SET_PAYMENT_ERRORS,
+  CLEAR_PAYMENT_ERRORS,
+
   SET_PLEDGE_PROCESSING,
 
   VALIDATE_INFORMATION,
@@ -60,6 +63,9 @@ export const setPaymentExperation = createAction(SET_PAYMENT_EXPERATION);
 export const setPaymentName = createAction(SET_PAYMENT_NAME);
 export const setPaymentCsv = createAction(SET_PAYMENT_CSV);
 export const setPaymentZip = createAction(SET_PAYMENT_ZIP);
+
+export const setPaymentErrors = createAction(SET_PAYMENT_ERRORS);
+export const clearPaymentErrors = createAction(CLEAR_PAYMENT_ERRORS);
 
 export const setPledgeProcessing = createAction(SET_PLEDGE_PROCESSING);
 
