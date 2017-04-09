@@ -1,8 +1,10 @@
 import { applyMiddleware } from 'redux';
-import logger from 'redux-logger'
+import { createLogger } from 'redux-logger'
 
 import { middlewareFromMap } from '~/lib/redux';
 import validation from './validation';
+
+const logger = createLogger({ collapsed: true });
 
 export default applyMiddleware(
   logger,
