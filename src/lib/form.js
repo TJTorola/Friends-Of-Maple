@@ -1,10 +1,14 @@
-import Stripe from '~/lib/stripe';
+import {
+  validateCardNumber,
+  validateExpiry,
+  validateCVC,
+} from '~/lib/stripe';
 
 const RULES = {
   required: (input) => !!input,
-  validCCNum: Stripe.validateCardNumber,
-  validCCExp: Stripe.validateExpiry,
-  validCCCVC: Stripe.validateCVC,
+  validCCNum: validateCardNumber,
+  validCCExp: validateExpiry,
+  validCCCVC: validateCVC,
 };
 
 const test = (rules, input) => (
