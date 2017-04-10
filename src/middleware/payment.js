@@ -1,3 +1,5 @@
+import { post } from 'axios';
+
 import {
   setPledgeProcessing,
   validateInformation,
@@ -70,6 +72,15 @@ async function getStripeToken(getState, dispatch) {
   const token = response.id;
 
   dispatch(setPledgePaymentToken(token));
+}
+
+async function postPlanSubscription(getState, dispatch) {
+  const {
+    pledge: { token },
+    amount,
+  } = getState();
+
+  
 }
 
 export default {
