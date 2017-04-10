@@ -1,4 +1,4 @@
-import { post } from 'axios';
+import { get } from 'axios';
 
 import {
   setPledgeProcessing,
@@ -80,7 +80,8 @@ async function postPlanSubscription(getState, dispatch) {
     amount,
   } = getState();
 
-  
+  const response = await get('https://vgi5mhxvwd.execute-api.us-east-1.amazonaws.com/dev/hello');
+  console.log(response);
 }
 
 export default {

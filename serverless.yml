@@ -1,6 +1,0 @@
-service: stripe
-
-functions:
-  newSubscription:
-    events:
-      - http: post subscriptions
