@@ -8,10 +8,10 @@ const endpoint = (func) => (event, context, callback) => {
     });
   };
 
-  const fail = (message) => {
+  const fail = (error) => {
     callback(null, {
-      statusCode: 500,
-      body: message,
+      statusCode: error.statusCode,
+      body: error.message,
     });
   }
 
@@ -24,10 +24,6 @@ const endpoint = (func) => (event, context, callback) => {
     func(payload, respond);
   } catch (e) {
     fail(e);
-  } finally {
-    if (!called) {
-      respond();
-    }
   }
 };
 
