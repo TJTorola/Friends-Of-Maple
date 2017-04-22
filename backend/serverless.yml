@@ -1,49 +1,21 @@
 service: friends-of-maple
 
+custom:
+  stage: "${opt:stage, self:provider.stage}"
+
 plugins:
   - serverless-offline
 
 provider:
   name: aws
   runtime: nodejs6.10
+  environment: ${file(env.yml):${self:custom.stage}}
 
 functions:
-  indexPlans:
-    handler: subscriptions/controller.index
+  postSubscription:
+    handler: handler.postSubscription
     events:
       - http:
           path: subscriptions
           method: get
-          cors: true
-
-  createPlan:
-    handler: subscriptions/controller.create
-    events:
-      - http:
-          path: subscriptions
-          method: post
-          cors: true
-
-  showPlan:
-    handler: subscriptions/controller.show
-    events:
-      - http:
-          path: subscriptions/{id}
-          method: get
-          cors: true
-
-  updatePlan:
-    handler: subscriptions/controller.update
-    events:
-      - http:
-          path: subscriptions/{id}
-          method: patch
-          cors: true
-
-  destroyPlan:
-    handler: subscriptions/controller.destroy
-    events:
-      - http:
-          path: subscriptions/{id}
-          method: delete
           cors: true

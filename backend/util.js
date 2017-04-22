@@ -29,7 +29,7 @@ const endpoint = (func) => (event, context, callback) => {
       respond();
     }
   }
-}
+};
 
 module.exports = {
   endpoint,

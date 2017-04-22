@@ -1,12 +1,10 @@
 'use strict';
+const { endpoint } = require('./util');
 
-module.exports.hello = (event, context, callback) => {
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: 'Go Serverless v1.0! Your function executed successfully.',
-    }),
-  };
+const postSubscription = (payload, respond) => {
+  
+}
 
-  callback(null, response);
-};
+module.exports = {
+  postSubscription: endpoint(postSubscription)
+}
