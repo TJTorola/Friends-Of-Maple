@@ -13,7 +13,8 @@ module.exports = {
   entry: ["./src/entry.jsx"],
   output: {
     path: path.resolve('./build/js'),
-    filename: "bundle.js"
+    filename: "bundle.js",
+    publicPath: '/friends-of-maple/',
   },
   module: {
     loaders: [

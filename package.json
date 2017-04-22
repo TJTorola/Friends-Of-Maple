@@ -5,7 +5,8 @@
   "main": "build/index.html",
   "scripts": {
     "build": "webpack -w",
-    "build-prod": "PROD_ENV='true' webpack -p"
+    "build-prod": "PROD_ENV='true' webpack -p",
+    "deploy-client": "gh-pages -d build"
   },
   "author": "Tyler Torola <Tyler@TJT.Codes>",
   "license": "ISC",
@@ -31,9 +32,11 @@
     "babel-preset-react": "^6.23.0",
     "css-loader": "^0.27.3",
     "extract-text-webpack-plugin": "^2.1.0",
+    "gh-pages": "^0.12.0",
     "node-sass": "^4.5.0",
     "sass-loader": "^6.0.3",
     "serverless": "^1.10.2",
+    "serverless-offline": "^3.13.3",
     "style-loader": "^0.14.1",
     "webpack": "^2.2.1"
   }
