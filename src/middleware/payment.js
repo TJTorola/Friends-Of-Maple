@@ -80,14 +80,14 @@ async function getStripeToken(getState, dispatch) {
 
 async function postPlanSubscription(getState, dispatch) {
   const {
-    pledge: { token },
+    pledge: { paymentToken },
     information: {
       email,
       firstName,
       lastName,
-      phoneNumber,
+      phone,
       address,
-      zipCode,
+      zip,
       city,
       state,
     },
@@ -96,13 +96,13 @@ async function postPlanSubscription(getState, dispatch) {
 
   const response = await post('/subscriptions', {
     newCustomerPayload: {
-      source: token,
+      source: paymentToken,
       email,
       firstName,
       lastName,
-      phoneNumber,
+      phoneNumber: phone,
       address,
-      zipCode,
+      zipCode: zip,
       city,
       state,
     },
