@@ -10,7 +10,7 @@ const PROD = JSON.parse(process.env.PROD_ENV || 'false');
 
 module.exports = {
   context: __dirname,
-  entry: ["./src/entry.jsx"],
+  entry: ["babel-polyfill", "./src/entry.jsx"],
   output: {
     path: path.resolve('./build/js'),
     filename: "bundle.js",

@@ -4,6 +4,10 @@ const endpoint = (func) => (event, context, callback) => {
     called = true;
     callback(null, {
       statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin" : "*",
+        "Access-Control-Allow-Credentials" : true
+      },
       body: JSON.stringify(resBody),
     });
   };
@@ -11,6 +15,10 @@ const endpoint = (func) => (event, context, callback) => {
   const fail = (error) => {
     callback(null, {
       statusCode: error.statusCode,
+      headers: {
+        "Access-Control-Allow-Origin" : "*",
+        "Access-Control-Allow-Credentials" : true
+      },
       body: error.message,
     });
   }
