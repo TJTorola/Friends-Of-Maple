@@ -2,6 +2,7 @@
 const { endpoint } = require('./util');
 const { badRequest, stripeError } = require('./error');
 const { newCustomer } = require('./models/customer');
+const { newSubscription } = require('./models/subscription');
 
 const postSubscription = ({ body }, respond, reject) => {
   if (!body.newCustomerPayload) { throw badRequest('Customer data required'); }
@@ -11,7 +12,7 @@ const postSubscription = ({ body }, respond, reject) => {
     .then(customer => (
       newSubscription({
         customerId: customer.id,
-        planId,
+        planId: body.planId,
       })
     )).then(subscription => {
       respond(subscription.id);

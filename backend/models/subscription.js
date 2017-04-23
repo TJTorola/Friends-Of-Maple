@@ -1,3 +1,5 @@
+const Stripe = require('../stripe.js');
+
 /**
  * @typedef {Object} Subscription
  * @property {string} id
@@ -17,22 +19,13 @@
  * @param {NewSubscriptionPayload} payload
  * @return {Subscription}
  */
-const new = (payload) => {
+const newSubscription = (payload) => (
+  Stripe.subscriptions.create({
+    customer: payload.customerId,
+    plan: payload.planId,
+  })
+);
 
-};
-
-/**
- * @param {string} subscriptionId
- * @return {Subscription}
- */
-const get = (subscriptionId) => {
-
-};
-
-/**
- * @param {string} subscriptionId
- * @return {boolean}
- */
-const cancel = (subscriptionId) => {
-
+module.exports = {
+  newSubscription,
 };
