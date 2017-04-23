@@ -34,6 +34,21 @@
     }
   }
 
+  .pledged {
+    h1 {
+      margin: 20px;
+      margin-top: 50px;
+    }
+
+    p {
+      margin: 0 50px;
+    }
+
+    a {
+      float: right;
+    }
+  }
+
   .processing {
     width: 100%;
     height: 300px;

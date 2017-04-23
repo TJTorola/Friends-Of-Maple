@@ -201,6 +201,7 @@ export const COPY = {
       H1: 'Thank you so much!',
       P: `Your donation is what allows us to keep working. Please contact us anytime
       to manage or cancel your pledge.`,
+      A: 'Return to Maple',
     }
   },
 };
