@@ -1,4 +1,4 @@
-import { get } from '~/lib/request';
+import { get, post } from '~/lib/request';
 
 import {
   setPledgeProcessing,
@@ -12,6 +12,10 @@ import {
 import {
   createCardToken,
 } from '~/lib/stripe';
+
+import {
+  PLANS,
+} from '~/config';
 
 async function postPledge({ getState, dispatch }) {
   const blockUser = () => dispatch(setPledgeProcessing(true));
@@ -77,11 +81,33 @@ async function getStripeToken(getState, dispatch) {
 async function postPlanSubscription(getState, dispatch) {
   const {
     pledge: { token },
-    amount,
+    information: {
+      email,
+      firstName,
+      lastName,
+      phoneNumber,
+      address,
+      zipCode,
+      city,
+      state,
+    },
+    planId,
   } = getState();
 
-  const response = await get('/hello');
-  console.log(response);
+  const response = await post('/subscriptions', {
+    newCustomerPayload: {
+      source: token,
+      email,
+      firstName,
+      lastName,
+      phoneNumber,
+      address,
+      zipCode,
+      city,
+      state,
+    },
+    planId,
+  });
 }
 
 export default {

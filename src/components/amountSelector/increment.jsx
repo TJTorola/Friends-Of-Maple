@@ -2,17 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import cx from 'classnames';
 
-import { setAmount, setNavigationAmountToInfo } from '~/actions/index';
+import { setPlanId, setNavigationAmountToInfo } from '~/actions/index';
 
-const Increment = ({ last, selectedAmount, selectAmount, increment, navigate }) => {
+const Increment = ({ last, selectedPlanId, selectPlanId, increment, navigate }) => {
   const handleClick = () => {
-    selectAmount(increment.amount);
+    selectPlanId(increment.id);
     navigate();
   }
 
   return (
     <div
-      className={classnames(last, increment.amount === selectedAmount)}
+      className={classnames(last, increment.id === selectedPlanId)}
       onClick={handleClick}
     >
       <div className="value">
@@ -29,11 +29,11 @@ const classnames = (isLast, isSelected) => cx({
 });
 
 const mapStateToProps = (state) => ({
-  selectedAmount: state.amount,
+  selectedPlanId: state.planId,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  selectAmount: (amount) => dispatch(setAmount({ amount })),
+  selectPlanId: (planId) => dispatch(setPlanId({ planId })),
   navigate: () => dispatch(setNavigationAmountToInfo()),
 });
 

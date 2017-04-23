@@ -243,8 +243,7 @@ export const PLANS = {
   },
 }
 
-export const DEFAULT_PLAN = 'fom-50';
-export const INITIAL_AMOUNT = PLANS[DEFAULT_PLAN].amount;
+export const INITIAL_PLAN = 'fom-50';
 
 export const INCREMENTS = [
   PLANS['fom-10'],

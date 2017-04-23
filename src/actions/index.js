@@ -8,7 +8,7 @@ import {
   SET_NAVIGATION_PREV,
   SET_NAVIGATION_AMOUNT_TO_INFO,
 
-  SET_AMOUNT,
+  SET_PLAN_ID,
 
   SET_INFORMATION_FIRST_NAME,
   SET_INFORMATION_LAST_NAME,
@@ -46,7 +46,7 @@ export const setNavigationNext = createAction(SET_NAVIGATION_NEXT);
 export const setNavigationPrev = createAction(SET_NAVIGATION_PREV);
 export const setNavigationAmountToInfo = createAction(SET_NAVIGATION_AMOUNT_TO_INFO);
 
-export const setAmount = createAction(SET_AMOUNT);
+export const setPlanId = createAction(SET_PLAN_ID);
 
 export const setInformationFirstName = createAction(SET_INFORMATION_FIRST_NAME);
 export const setInformationLastName = createAction(SET_INFORMATION_LAST_NAME);

@@ -1,14 +1,14 @@
 import { deepReducerFromMap } from '~/lib/redux';
 
 import nav from './nav';
-import amount from './amount';
+import planId from './planId';
 import information from './information';
 import payment from './payment';
 import pledge from './pledge';
 
 export default deepReducerFromMap({
   nav,
-  amount,
+  planId,
   information,
   payment,
   pledge,
