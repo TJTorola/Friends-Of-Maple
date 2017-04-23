@@ -5,9 +5,17 @@ const { newCustomer } = require('./models/customer');
 
 const postSubscription = ({ body }, respond, reject) => {
   if (!body.newCustomerPayload) { throw badRequest('Customer data required'); }
+  if (!body.planId) { throw badRequest('PlanId required'); }
+
   newCustomer(body.newCustomerPayload)
-    .then(respond)
-    .catch(err => {
+    .then(customer => (
+      newSubscription({
+        customerId: customer.id,
+        planId,
+      })
+    )).then(subscription => {
+      respond(subscription.id);
+    }).catch(err => {
       reject(stripeError(err));
     });
 }

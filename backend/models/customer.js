@@ -58,7 +58,18 @@ const newCustomer = (payload) => {
     email,
     source,
     metadata,
-  });
+  }).then(sCustomer => ({
+    id: sCustomer.id,
+    cardId: sCustomer.sources.data[0].id,
+    email: sCustomer.email,
+    firstName: sCustomer.metadata.firstName,
+    lastName: sCustomer.metadata.lastName,
+    phoneNumber: sCustomer.metadata.phoneNumber,
+    address: sCustomer.metadata.address,
+    zipCode: sCustomer.metadata.zipCode,
+    city: sCustomer.metadata.city,
+    state: sCustomer.metadata.state,
+  }));
 }
 
 module.exports = {
