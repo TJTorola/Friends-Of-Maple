@@ -34,6 +34,7 @@ import {
   SET_PLEDGE_PROCESSING,
   SET_PLEDGE_PAYMENT_TOKEN,
   CLEAR_PLEDGE_PAYMENT_TOKEN,
+  SET_PLEDGE_ID,
 
   VALIDATE_INFORMATION,
   VALIDATE_PAYMENT,
@@ -72,6 +73,7 @@ export const clearPaymentErrors = createAction(CLEAR_PAYMENT_ERRORS);
 export const setPledgeProcessing = createAction(SET_PLEDGE_PROCESSING);
 export const setPledgePaymentToken = createAction(SET_PLEDGE_PAYMENT_TOKEN);
 export const clearPledgePaymentToken = createAction(CLEAR_PLEDGE_PAYMENT_TOKEN);
+export const setPledgeId = createAction(SET_PLEDGE_ID);
 
 export const validateInformation = createAction(VALIDATE_INFORMATION);
 export const validatePayment = createAction(VALIDATE_PAYMENT);

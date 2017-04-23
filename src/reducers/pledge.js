@@ -3,6 +3,8 @@ import {
 
   SET_PLEDGE_PAYMENT_TOKEN,
   CLEAR_PLEDGE_PAYMENT_TOKEN,
+
+  SET_PLEDGE_ID,
 } from '~/actions/types';
 
 export default {
@@ -15,5 +17,10 @@ export default {
     initialValue: '',
     [SET_PLEDGE_PAYMENT_TOKEN]: (token) => token,
     [CLEAR_PLEDGE_PAYMENT_TOKEN]: () => '',
+  },
+
+  id: {
+    initialValue: '',
+    [SET_PLEDGE_ID]: (id) => id,
   },
 };

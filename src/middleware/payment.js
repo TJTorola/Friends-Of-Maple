@@ -5,6 +5,7 @@ import {
   validateInformation,
   validatePayment,
   setPledgePaymentToken,
+  setPledgeId,
 } from '~/actions/index';
 import {
   POST_PLEDGE,
@@ -32,14 +33,12 @@ async function postPledge({ getState, dispatch }) {
     await getStripeToken(getState, dispatch);
     await postPlanSubscription(getState, dispatch);
   } catch (e) {
-    console.error(e);
     // dispatch(setPledgeError(e));
     unblockUser();
     return;
   }
 
   unblockUser();
-  // dispatch(setPledgeSuccess());
 }
 
 const validate = (getState, dispatch) => {
@@ -108,6 +107,8 @@ async function postPlanSubscription(getState, dispatch) {
     },
     planId,
   });
+  const pledgeId = response.data;
+  dispatch(setPledgeId(pledgeId));
 }
 
 export default {
