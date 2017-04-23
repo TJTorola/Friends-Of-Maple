@@ -38,9 +38,19 @@ const notFound = () => (
   })
 );
 
+const serverError = () => (
+  new FomError({
+    message: 'There was a server error, please try again',
+    statusCode: 500,
+  })
+)
+
+const stripeError = (error) => badRequest(error);
+
 module.exports = {
   badRequest,
   unauthorized,
   forbidden,
   notFound,
+  stripeError,
 };

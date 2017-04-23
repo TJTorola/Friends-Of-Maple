@@ -17,5 +17,5 @@ functions:
     events:
       - http:
           path: subscriptions
-          method: get
+          method: post
           cors: true

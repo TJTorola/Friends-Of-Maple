@@ -21,7 +21,7 @@ const endpoint = (func) => (event, context, callback) => {
   };
 
   try {
-    func(payload, respond);
+    func(payload, respond, fail);
   } catch (e) {
     fail(e);
   }

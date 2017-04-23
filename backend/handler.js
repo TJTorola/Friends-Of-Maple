@@ -1,11 +1,15 @@
 'use strict';
 const { endpoint } = require('./util');
-const { badRequest } = require('./error');
+const { badRequest, stripeError } = require('./error');
+const { newCustomer } = require('./models/customer');
 
-const postSubscription = ({ newCustomerPayload }, respond) => {
-  if (!newCustomerPayload) { throw badRequest('Customer data required'); }
-
-  respond('win');
+const postSubscription = ({ body }, respond, reject) => {
+  if (!body.newCustomerPayload) { throw badRequest('Customer data required'); }
+  newCustomer(body.newCustomerPayload)
+    .then(respond)
+    .catch(err => {
+      reject(stripeError(err));
+    });
 }
 
 module.exports = {

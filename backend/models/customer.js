@@ -1,3 +1,5 @@
+const Stripe = require('../stripe.js');
+
 /**
  * @typedef {Object} Customer
  * @property {string} id
@@ -14,7 +16,7 @@
 
 /**
  * @typedef {Object} NewCustomerPayload
- * @property {string} cardToken         - !""
+ * @property {string} source            - !""
  * @property {string} email             - !""
  * @property {string} firstName         - !""
  * @property {string} lastName          - !""
@@ -29,6 +31,36 @@
  * @param {NewCustomerPayload} payload
  * @return {Promise.<Customer, FomError>}
  */
-const new = (payload) => {
+const newCustomer = (payload) => {
+  const {
+    source,
+    email,
+    firstName,
+    lastName,
+    phoneNumber,
+    address,
+    zipCode,
+    city,
+    state,
+  } = payload;
 
+  const metadata = {
+    firstName,
+    lastName,
+    phoneNumber,
+    address,
+    zipCode,
+    city,
+    state,
+  };
+
+  return Stripe.customers.create({
+    email,
+    source,
+    metadata,
+  });
 }
+
+module.exports = {
+  newCustomer,
+};
