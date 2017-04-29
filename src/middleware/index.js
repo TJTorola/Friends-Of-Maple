@@ -5,7 +5,11 @@ import { middlewareFromMap } from '~/lib/redux';
 import validation from './validation';
 import payment from './payment';
 
-const logger = createLogger({ collapsed: true });
+const nullMiddleware = _ => next => action => next(action);
+
+const logger = (ENV.stage !== 'prod')
+  ? createLogger({ collapsed: true })
+  : nullMiddleware;
 
 export default applyMiddleware(
   logger,

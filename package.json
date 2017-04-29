@@ -4,8 +4,9 @@
   "description": "",
   "main": "build/index.html",
   "scripts": {
-    "build": "webpack -w",
-    "build-prod": "PROD_ENV='true' webpack -p",
+    "dev": "ENV='local' webpack -w",
+    "build-staging": "ENV='staging' webpack -p",
+    "build-prod": "ENV='prod' webpack -p",
     "deploy-client": "gh-pages -d build"
   },
   "author": "Tyler Torola <Tyler@TJT.Codes>",

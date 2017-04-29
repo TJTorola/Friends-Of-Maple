@@ -1,12 +1,13 @@
 const path = require("path");
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const envVars = require("./env.js");
 
 const extractSass = new ExtractTextPlugin({
   filename: "../build/css/bundle.css"
 });
 
-const PROD = JSON.parse(process.env.PROD_ENV || 'false');
+const ENV = process.env.ENV || 'local';
 
 module.exports = {
   context: __dirname,
@@ -39,20 +40,24 @@ module.exports = {
     },
     extensions: [".js", ".jsx"]
   },
-  plugins: PROD ? [
+  plugins: (ENV === 'prod') ? [
     new webpack.DefinePlugin({
       'process.env':{
         'NODE_ENV': JSON.stringify('production')
-      }
+      },
+      ENV: JSON.stringify(envVars[ENV]),
     }),
+    new ExtractTextPlugin("../css/bundle.css"),
     new webpack.optimize.UglifyJsPlugin({
       compress:{
         warnings: false
       },
       sourceMap: true,
-    }),
-    new ExtractTextPlugin("../css/bundle.css"),
+    })
   ] : [
+    new webpack.DefinePlugin({
+      ENV: JSON.stringify(envVars[ENV]),
+    }),
     new ExtractTextPlugin("../css/bundle.css"),
   ]
 };

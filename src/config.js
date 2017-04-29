@@ -29,10 +29,6 @@ import {
   toCsc,
 } from '~/lib/masks';
 
-export const KEYS = {
-  stripe: 'pk_test_1mpUmvYGwBprD3L9QvyzdDg5',
-};
-
 export const PAYMENT_FORM = {
   fields: {
     cardNumber: {
@@ -51,7 +47,7 @@ export const PAYMENT_FORM = {
       setter: setPaymentExperation,
       getter: (state) => state.payment.experation,
       errors: (state) => state.payment.errors.experation,
-      printable: 'Experation',
+      printable: 'Experation (mm/dd)',
       mask: toExperation,
       rules: {
         validCCExp: 'A Valid Experation Date is Required',
@@ -227,10 +223,10 @@ export const PLANS = {
     amount: 10,
     printable: '$ 10',
   },
-  'fom-20': {
-    id: 'fom-20',
-    amount: 20,
-    printable: '$ 20',
+  'fom-25': {
+    id: 'fom-25',
+    amount: 25,
+    printable: '$ 25',
   },
   'fom-50': {
     id: 'fom-50',
@@ -247,14 +243,20 @@ export const PLANS = {
     amount: 100,
     printable: '$ 100',
   },
+  'fom-200': {
+    id: 'fom-200',
+    amount: 200,
+    printable: '$ 200',
+  },
 }
 
 export const INITIAL_PLAN = 'fom-50';
 
 export const INCREMENTS = [
   PLANS['fom-10'],
-  PLANS['fom-20'],
+  PLANS['fom-25'],
   PLANS['fom-50'],
   PLANS['fom-75'],
   PLANS['fom-100'],
+  PLANS['fom-200'],
 ];
