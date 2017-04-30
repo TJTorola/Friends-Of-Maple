@@ -11,7 +11,6 @@ const Payment = ({ firstName, lastName, back, next }) => (
     <AmountSelector />
     <div className="donor-info">
       <h2>{ copy.H2 }</h2>
-      <span>{ `${firstName} ${lastName}`.trim() }</span>
     </div>
     <Form form={ PAYMENT_FORM } />
     <div className="nav-buttons">

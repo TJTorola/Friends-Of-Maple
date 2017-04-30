@@ -9,6 +9,7 @@ const Stripe = require('../stripe.js');
  * @property {string} lastName
  * @property {string} phoneNumber
  * @property {string} address
+ * @property {string} country
  * @property {string} zipCode
  * @property {string} city
  * @property {string} state
@@ -22,6 +23,7 @@ const Stripe = require('../stripe.js');
  * @property {string} lastName          - !""
  * @property {string} phoneNumber
  * @property {string} address
+ * @property {string} country
  * @property {string} zipCode
  * @property {string} city
  * @property {string} state
@@ -38,6 +40,7 @@ const newCustomer = (payload) => {
     firstName,
     lastName,
     phoneNumber,
+    country,
     address,
     zipCode,
     city,
@@ -49,6 +52,7 @@ const newCustomer = (payload) => {
     lastName,
     phoneNumber,
     address,
+    country,
     zipCode,
     city,
     state,
@@ -66,6 +70,7 @@ const newCustomer = (payload) => {
     lastName: sCustomer.metadata.lastName,
     phoneNumber: sCustomer.metadata.phoneNumber,
     address: sCustomer.metadata.address,
+    country: sCustomer.metadata.country,
     zipCode: sCustomer.metadata.zipCode,
     city: sCustomer.metadata.city,
     state: sCustomer.metadata.state,

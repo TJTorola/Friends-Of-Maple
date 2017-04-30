@@ -1,4 +1,4 @@
-import { get, post } from '~/lib/request';
+import { lambda } from '~/lib/request';
 
 import {
   setPledgeProcessing,
@@ -56,13 +56,13 @@ async function getStripeToken(getState, dispatch) {
   const {
     payment: {
       cardNumber,
-      experation,
+      expiration,
       name,
       csv,
       zip,
     },
   } = getState();
-  const [expMonth, expYear] = experation.split('/').map(str => parseInt(str));
+  const [expMonth, expYear] = expiration.split('/').map(str => parseInt(str));
 
   const response = await createCardToken({
     name: name,
@@ -86,6 +86,7 @@ async function postPlanSubscription(getState, dispatch) {
       lastName,
       phone,
       address,
+      country,
       zip,
       city,
       state,
@@ -93,7 +94,7 @@ async function postPlanSubscription(getState, dispatch) {
     planId,
   } = getState();
 
-  const response = await post('/subscriptions', {
+  const response = await lambda.post('/subscriptions', {
     newCustomerPayload: {
       source: paymentToken,
       email,
@@ -101,6 +102,7 @@ async function postPlanSubscription(getState, dispatch) {
       lastName,
       phoneNumber: phone,
       address,
+      country,
       zipCode: zip,
       city,
       state,

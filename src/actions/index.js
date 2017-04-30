@@ -18,12 +18,13 @@ import {
   SET_INFORMATION_CITY,
   SET_INFORMATION_STATE,
   SET_INFORMATION_ZIP,
+  SET_INFORMATION_COUNTRY,
 
   SET_INFORMATION_ERRORS,
   CLEAR_INFORMATION_ERRORS,
 
   SET_PAYMENT_CARD_NUMBER,
-  SET_PAYMENT_EXPERATION,
+  SET_PAYMENT_EXPIRATION,
   SET_PAYMENT_NAME,
   SET_PAYMENT_CSV,
   SET_PAYMENT_ZIP,
@@ -57,12 +58,13 @@ export const setInformationAddress = createAction(SET_INFORMATION_ADDRESS);
 export const setInformationCity = createAction(SET_INFORMATION_CITY);
 export const setInformationState = createAction(SET_INFORMATION_STATE);
 export const setInformationZip = createAction(SET_INFORMATION_ZIP);
+export const setInformationCountry = createAction(SET_INFORMATION_COUNTRY);
 
 export const setInformationErrors = createAction(SET_INFORMATION_ERRORS);
 export const clearInformationErrors = createAction(CLEAR_INFORMATION_ERRORS);
 
 export const setPaymentCardNumber = createAction(SET_PAYMENT_CARD_NUMBER);
-export const setPaymentExperation = createAction(SET_PAYMENT_EXPERATION);
+export const setPaymentExpiration = createAction(SET_PAYMENT_EXPIRATION);
 export const setPaymentName = createAction(SET_PAYMENT_NAME);
 export const setPaymentCsv = createAction(SET_PAYMENT_CSV);
 export const setPaymentZip = createAction(SET_PAYMENT_ZIP);

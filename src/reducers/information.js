@@ -9,6 +9,7 @@ import {
   SET_INFORMATION_CITY,
   SET_INFORMATION_STATE,
   SET_INFORMATION_ZIP,
+  SET_INFORMATION_COUNTRY,
 
   CLEAR_ERRORS,
   CLEAR_INFORMATION_ERRORS,
@@ -44,6 +45,12 @@ export default {
     initialValue: '',
     [CLEAR_INFORMATION]: () => '',
     [SET_INFORMATION_ADDRESS]: (value) => value,
+  },
+
+  country: {
+    initialValue: '',
+    [CLEAR_INFORMATION]: () => '',
+    [SET_INFORMATION_COUNTRY]: (value) => value,
   },
 
   city: {

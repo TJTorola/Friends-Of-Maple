@@ -13,9 +13,10 @@ import {
   setInformationCity,
   setInformationState,
   setInformationZip,
+  setInformationCountry,
 
   setPaymentCardNumber,
-  setPaymentExperation,
+  setPaymentExpiration,
   setPaymentName,
   setPaymentCsv,
   setPaymentZip,
@@ -25,7 +26,7 @@ import {
   toPhone,
   toZip,
   toCardNumber,
-  toExperation,
+  toExpiration,
   toCsc,
 } from '~/lib/masks';
 
@@ -42,15 +43,15 @@ export const PAYMENT_FORM = {
         validCCNum: 'A Valid Card Number is Required',
       },
     },
-    experation: {
-      id: 'experation',
-      setter: setPaymentExperation,
-      getter: (state) => state.payment.experation,
-      errors: (state) => state.payment.errors.experation,
-      printable: 'Experation (mm/dd)',
-      mask: toExperation,
+    expiration: {
+      id: 'expiration',
+      setter: setPaymentExpiration,
+      getter: (state) => state.payment.expiration,
+      errors: (state) => state.payment.errors.expiration,
+      printable: 'Expiration (mm/dd)',
+      mask: toExpiration,
       rules: {
-        validCCExp: 'A Valid Experation Date is Required',
+        validCCExp: 'A Valid Expiration Date is Required',
       },
     },
     name: {
@@ -90,7 +91,7 @@ export const PAYMENT_FORM = {
     [{ field: 'name', cols: 8 }, { field: 'zip', cols: 4 }],
     [
       { field: 'cardNumber', cols: 6 },
-      { field: 'experation', cols: 3 },
+      { field: 'expiration', cols: 3 },
       { field: 'csv', cols: 3 },
     ],
   ],
@@ -151,12 +152,12 @@ export const INFO_FORM = {
       mask: toZip,
       printable: 'Zip Code',
     },
-    city: {
-      id: 'city',
-      setter: setInformationCity,
-      getter: (state) => state.information.city,
-      errors: (state) => state.information.errors.city,
-      printable: 'City',
+    country: {
+      id: 'country',
+      setter: setInformationCountry,
+      getter: (state) => state.information.country,
+      errors: (state) => state.information.errors.country,
+      printable: 'Country',
     },
     state: {
       id: 'state',
@@ -165,13 +166,30 @@ export const INFO_FORM = {
       errors: (state) => state.information.errors.state,
       printable: 'State',
     },
+    city: {
+      id: 'city',
+      setter: setInformationCity,
+      getter: (state) => state.information.city,
+      errors: (state) => state.information.errors.city,
+      printable: 'City',
+    },
   },
 
   grid: [
-    [{ field: 'firstName', cols: 6 }, { field: 'lastName', cols: 6 }],
-    [{ field: 'email', cols: 8 }, { field: 'phone', cols: 4 }],
-    [{ field: 'address', cols: 8 }, { field: 'zipCode', cols: 4 }],
-    [{ field: 'city', cols: 6 }, { field: 'state', cols: 6 }],
+    [
+      { field: 'firstName', cols: 6 },
+      { field: 'lastName', cols: 6 },
+    ], [
+      { field: 'email', cols: 8 },
+      { field: 'phone', cols: 4 },
+    ], [
+      { field: 'address', cols: 8 },
+      { field: 'zipCode', cols: 4 },
+    ], [
+      { field: 'country', cols: 4 },
+      { field: 'state', cols: 4 },
+      { field: 'city', cols: 4 }
+    ],
   ],
 };
 
@@ -181,17 +199,20 @@ export const COPY = {
   },
   BODY: {
     AMOUNT: {
-      H2: 'Become a Friend of Maple',
-      P: `Select a monthly pledge and become a friend of maple. Support ongoing
-      operational costs and insure that Maple can continue it's mission of supporting
-      community and entreprenuers in Uganda, Chile, and around the world.`,
+      H2: 'Join the Many Friends of MAPLE, Donate Monthly',
+      P: `Select a monthly pledge through our secure site. Support
+      ongoing operational costs to ensure that MAPLE can continue its
+      mission of supporting community-managed development and entrepreneurs in
+      Uganda, Chile, and around the world. MAPLE coordinates special updates,
+      photos, videos, events, gifts, connections to the field, conversations,
+      and other opportunities tailored to the interests of monthly donors.`,
     },
     INFO: {
       H2: 'Donor Info',
       SPAN: 'Please provide some account information.'
     },
     PAYMENT: {
-      H2: 'Donor:',
+      H2: 'Payment Info',
     },
     PLEDGED: {
       H1: 'Thank you so much!',
@@ -252,11 +273,7 @@ export const PLANS = {
 
 export const INITIAL_PLAN = 'fom-50';
 
-export const INCREMENTS = [
-  PLANS['fom-10'],
-  PLANS['fom-25'],
-  PLANS['fom-50'],
-  PLANS['fom-75'],
-  PLANS['fom-100'],
-  PLANS['fom-200'],
-];
+export const INCREMENTS = Object
+  .keys(PLANS)
+  .map(key => PLANS[key])
+  .sort((l, r) => l.amount < r.amount ? -1 : 1);
