@@ -7,7 +7,8 @@
     "dev": "ENV='local' webpack -w",
     "build-dev": "ENV='dev' webpack -p",
     "build-prod": "ENV='prod' webpack -p",
-    "deploy-client": "gh-pages -d build"
+    "deploy": "gh-pages --dist build",
+    "deploy-prod": "gh-pages --dist build --branch forge"
   },
   "author": "Tyler Torola <Tyler@TJT.Codes>",
   "license": "ISC",
