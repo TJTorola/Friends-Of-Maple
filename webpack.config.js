@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const envVars = require("./env.js");
-const package = require('../package.json');
+const package = require('./package.json');
 
 const extractSass = new ExtractTextPlugin({
   filename: "../build/css/bundle.css"
