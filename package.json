@@ -5,7 +5,7 @@
   "main": "build/index.html",
   "scripts": {
     "dev": "ENV='local' webpack -w",
-    "build-staging": "ENV='staging' webpack -p",
+    "build-dev": "ENV='dev' webpack -p",
     "build-prod": "ENV='prod' webpack -p",
     "deploy-client": "gh-pages -d build"
   },

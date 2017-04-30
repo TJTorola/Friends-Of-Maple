@@ -42,6 +42,13 @@ module.exports = {
     extensions: [".js", ".jsx"]
   },
   plugins: (ENV === 'prod') ? [
+    new ExtractTextPlugin("../css/bundle.css"),
+    new webpack.optimize.UglifyJsPlugin({
+      compress:{
+        warnings: false
+      },
+      sourceMap: true,
+    }),
     new webpack.DefinePlugin({
       'process.env':{
         'NODE_ENV': JSON.stringify('production')
@@ -49,18 +56,11 @@ module.exports = {
       ENV: JSON.stringify(envVars[ENV]),
       PACKAGE_VERSION: JSON.stringify(package.version),
     }),
-    new ExtractTextPlugin("../css/bundle.css"),
-    new webpack.optimize.UglifyJsPlugin({
-      compress:{
-        warnings: false
-      },
-      sourceMap: true,
-    })
   ] : [
+    new ExtractTextPlugin("../css/bundle.css"),
     new webpack.DefinePlugin({
       ENV: JSON.stringify(envVars[ENV]),
       PACKAGE_VERSION: JSON.stringify(package.version),
     }),
-    new ExtractTextPlugin("../css/bundle.css"),
   ]
 };
