@@ -34,8 +34,12 @@ async function postPledge({ getState, dispatch }) {
     await getStripeToken(getState, dispatch);
     await postPlanSubscription(getState, dispatch);
   } catch (e) {
-    const { data } = e.response;
-    if (data.field) {
+    if (
+      e.response &&
+      e.response.data &&
+      e.response.data.field
+    ) {
+      const { data } = e.response;
       dispatch(setPaymentErrors({
         [data.field]: [ data.message ],
       }));
