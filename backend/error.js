@@ -89,7 +89,7 @@ const stripeError = (error) => {
 
     case 'incorrect_zip':
       return badRequest({
-        message: 'Incorrect ZipCode',
+        message: 'Incorrect Zip Code',
         field: 'zip',
       });
 

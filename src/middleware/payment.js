@@ -4,6 +4,7 @@ import {
   setPledgeProcessing,
   validateInformation,
   validatePayment,
+  setPaymentErrors,
   setPledgePaymentToken,
   setPledgeId,
 } from '~/actions/index';
@@ -33,7 +34,13 @@ async function postPledge({ getState, dispatch }) {
     await getStripeToken(getState, dispatch);
     await postPlanSubscription(getState, dispatch);
   } catch (e) {
-    // dispatch(setPledgeError(e));
+    const { data } = e.response;
+    if (data.field) {
+      dispatch(setPaymentErrors({
+        [data.field]: [ data.message ],
+      }));
+    }
+
     unblockUser();
     return;
   }
