@@ -5,11 +5,16 @@ import { middlewareFromMap } from '~/lib/redux';
 import validation from './validation';
 import payment from './payment';
 
-const nullMiddleware = _ => next => action => next(action);
+const consoleLogger = createLogger({ collapsed: true });
+
+const bugsnagLogger = _ => next => action => {
+  Bugsnag.leaveBreadcrumb(`Action dispatch: ${action.type}`);
+  next(action);
+};
 
 const logger = (ENV.stage !== 'prod')
-  ? createLogger({ collapsed: true })
-  : nullMiddleware;
+  ? consoleLogger
+  : bugsnagLogger;
 
 export default applyMiddleware(
   logger,

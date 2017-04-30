@@ -11,6 +11,7 @@ module.exports = {
   },
   prod: {
     stage: 'prod',
+    bugsnagKey: '',
     stripePublicKey: '',
     lambdaEndpoint: '',
   },

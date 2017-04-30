@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const envVars = require("./env.js");
+const package = require('../package.json');
 
 const extractSass = new ExtractTextPlugin({
   filename: "../build/css/bundle.css"
@@ -46,6 +47,7 @@ module.exports = {
         'NODE_ENV': JSON.stringify('production')
       },
       ENV: JSON.stringify(envVars[ENV]),
+      PACKAGE_VERSION: JSON.stringify(package.version),
     }),
     new ExtractTextPlugin("../css/bundle.css"),
     new webpack.optimize.UglifyJsPlugin({
@@ -57,6 +59,7 @@ module.exports = {
   ] : [
     new webpack.DefinePlugin({
       ENV: JSON.stringify(envVars[ENV]),
+      PACKAGE_VERSION: JSON.stringify(package.version),
     }),
     new ExtractTextPlugin("../css/bundle.css"),
   ]

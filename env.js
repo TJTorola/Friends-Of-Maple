@@ -11,6 +11,7 @@ module.exports = {
   },
   prod: {
     stage: 'prod',
+    bugsnagKey: '0ea540d406943681fe81afb68ed8c9de',
     stripePublicKey: 'pk_live_OYk2RBxODRhMEIuayaKLkGGz',
     lambdaEndpoint: 'http://localhost:3000',
   },
