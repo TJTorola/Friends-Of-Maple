@@ -216,8 +216,11 @@ export const COPY = {
     },
     PLEDGED: {
       H1: 'Thank you so much!',
-      P: `Your donation is what allows us to keep working. Please contact us anytime
-      to manage or cancel your pledge.`,
+      P: `Your ongoing support is what makes MAPLE's work possible. Your
+      donations are 100% tax deductible, and we'll send you an email receipt
+      each month. Please contact us at info@maplemicro.org to manage or cancel
+      your recurring donation. Welcome to our circle of Friends - we are so glad
+      to have you!`,
       A: 'Return to Maple',
     }
   },

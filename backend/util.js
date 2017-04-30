@@ -19,7 +19,10 @@ const endpoint = (func) => (event, context, callback) => {
         "Access-Control-Allow-Origin" : "*",
         "Access-Control-Allow-Credentials" : true
       },
-      body: error.message,
+      body: {
+        message: error.message,
+        field: error.field || '',
+      }
     });
   }
 

@@ -7,17 +7,19 @@ class FomError extends Error {
   constructor(props) {
     super(props.message);
     this.statusCode = props.statusCode;
+    this.field = props.field;
   }
 }
 
-const badRequest = (message) => (
+const badRequest = ({ message, field }) => (
   new FomError({
     message,
+    field,
     statusCode: 400,
   })
 );
 
-const unauthorized = (message) => (
+const unauthorized = (message, hints) => (
   new FomError({
     message: 'The requested resource requires authorization',
     statusCode: 401,
@@ -45,7 +47,61 @@ const serverError = () => (
   })
 )
 
-const stripeError = (error) => badRequest(error);
+const stripeError = (error) => {
+  // https://stripe.com/docs/api#errors
+  switch (error.code) {
+    case 'invalid_number':
+      return badRequest({
+        message: 'Invalid Card Number',
+        field: 'cardNumber',
+      });
+
+    case 'incorrect_number':
+      return badRequest({
+        message: 'Incorrect Card Number',
+        field: 'cardNumber',
+      });
+
+    case 'invalid_expiry_month':
+    case 'invalid_expiry_year':
+      return badRequest({
+        message: 'Invalid Card expiration',
+        field: 'expiration',
+      });
+
+    case 'invalid_cvc':
+      return badRequest({
+        message: 'Invalid Card CSV',
+        field: 'csv',
+      });
+
+    case 'incorrect_cvc':
+      return badRequest({
+        message: 'Incorrect Card CSV',
+        field: 'csv',
+      });
+
+    case 'expired_card':
+      return badRequest({
+        message: 'Expired Card',
+        field: 'cardNumber',
+      });
+
+    case 'incorrect_zip':
+      return badRequest({
+        message: 'Incorrect ZipCode',
+        field: 'zip',
+      });
+
+    case 'card_declined':
+      return badRequest({
+        message: 'Card Declined',
+        field: 'cardNumber',
+      });
+  }
+
+  return serverError()
+};
 
 module.exports = {
   badRequest,

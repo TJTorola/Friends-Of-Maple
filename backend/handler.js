@@ -5,8 +5,12 @@ const { newCustomer } = require('./models/customer');
 const { newSubscription } = require('./models/subscription');
 
 const postSubscription = ({ body }, respond, reject) => {
-  if (!body.newCustomerPayload) { throw badRequest('Customer data required'); }
-  if (!body.planId) { throw badRequest('PlanId required'); }
+  if (!body.newCustomerPayload) {
+    reject(badRequest({ message: 'Customer data required' }));
+  }
+  if (!body.planId) {
+    reject(badRequest({ message: 'PlanId required' }));
+  }
 
   newCustomer(body.newCustomerPayload)
     .then(customer => (
